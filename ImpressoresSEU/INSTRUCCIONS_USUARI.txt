@@ -1,0 +1,44 @@
+﻿INSTAL·LACIÓ DE LES IMPRESSORES DE LA TEVA DELEGACIÓ
+
+Aquesta aplicació instal·la al teu ordinador les impressores SHARP de la teva delegació.
+Només cal fer-ho una vegada. Tarda uns minuts.
+
+
+COM FER-HO
+
+1. Fes doble clic a la icona "Instal·la impressores SEU" de l'escriptori
+   (o busca-la al menú Inici).
+
+2. Si Windows pregunta "Voleu permetre que aquesta aplicació faci canvis
+   al dispositiu?", prem "Sí".
+
+3. S'obrirà una finestra. Escriu a dalt unes lletres del nom de la teva
+   delegació. Veuràs que la llista es fa més curta.
+
+4. Marca amb el quadradet la teva delegació. (Si en tens més d'una, les pots
+   marcar totes.)
+
+5. Prem "Instal·la les impressores".
+
+6. Veuràs una finestra amb una barra que avança. NO LA TANQUIS. Espera uns
+   minuts.
+
+7. Quan surti "Fet!", prem "Tanca". Ja ho tens.
+
+
+SI SURT UN MISSATGE D'ERROR
+
+Prem el botó "Mostra el registre" i envia aquest fitxer, juntament amb una
+captura de pantalla del missatge, a [ADREÇA DE SUPORT].
+
+
+PREGUNTES FREQÜENTS
+
+- Puc repetir-ho? Sí. Si repeteixes la instal·lació, les impressores es tornen
+  a instal·lar sense duplicar-se.
+
+- No trobo la meva delegació a la llista. Prova d'escriure només una paraula
+  del nom (per exemple, el nom del municipi). Si encara no hi surt, avisa el
+  servei informàtic.
+
+- M'he equivocat de delegació. Avisa el servei informàtic.

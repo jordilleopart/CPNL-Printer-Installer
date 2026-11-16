@@ -1,0 +1,727 @@
+{
+  "versio": 1,
+  "delegacions": [
+    {
+      "codi": "SEU.011223",
+      "nom": "CNL BAIX LLOBREGAT CENTRE",
+      "poblacio": "Sant Feliu de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.223.66"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.014787",
+      "nom": "CNL BARCELONA - SERVEIS CENTRALS",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.201.2"
+        },
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.201.5"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.003658",
+      "nom": "CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.222.4"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.222.3"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015783",
+      "nom": "CNL BARCELONA - EIXAMPLE",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.221.66"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.221.67"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.002273",
+      "nom": "CNL BARCELONA - SANTS-MONTJUÏC",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.220.2"
+        },
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.220.3"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015901",
+      "nom": "CNL BARCELONA - LES CORTS",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.202.130"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.202.131"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018632",
+      "nom": "CNL BARCELONA - GRACIA",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.220.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.001647",
+      "nom": "CNL BARCELONA - D'HORTA-GUINARDÓ",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.221.130"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.221.131"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.003794",
+      "nom": "CNL BARCELONA - NOU BARRIS",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.222.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.016438",
+      "nom": "CNL BARCELONA - SANT ANDREU",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.223.131"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.014879",
+      "nom": "CNL BARCELONA - SANT MARTI",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.200.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.017941",
+      "nom": "CNL L'HOSPITALET DEL LLOBREGAT",
+      "poblacio": "L'Hospitalet de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.203.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.005046",
+      "nom": "CNL CORNELLA DEL LLOBREGAT",
+      "poblacio": "Cornellà de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.199.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.009335",
+      "nom": "CNL OLESA DE MONTSERRAT",
+      "poblacio": "Olesa de Montserrat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.210.146"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.010836",
+      "nom": "CNL SANT ANDREU DE LA BARCA",
+      "poblacio": "Sant Andreu de la Barca",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.213.98"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.005626",
+      "nom": "CNL ESPARREGUERA",
+      "poblacio": "Esparraguera",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.220.210"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.005705",
+      "nom": "CNL ESPLUGUES DE LLOBREGAT",
+      "poblacio": "Esplugues de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.197.162"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.011452",
+      "nom": "CNL SANT JOAN DESPI",
+      "poblacio": "Sant Joan Despí",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.213.114"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.011486",
+      "nom": "CNL SANT JUST DESVERN",
+      "poblacio": "Sant Just Desvern",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.213.162"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.010931",
+      "nom": "CNL ERAMPRUNYA",
+      "poblacio": "Sant Boi de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.200.66"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.016076",
+      "nom": "CNL CASTELLDEFELS",
+      "poblacio": "Castelldefels",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.197.34"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.017244",
+      "nom": "CNL BAIX LLOBREGAT SUD",
+      "poblacio": "El Prat de Llobregat",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.219.194"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.000478",
+      "nom": "CNL BADALONA I SANT ADRIÀ",
+      "poblacio": "Badalona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.198.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.010795",
+      "nom": "CNL SANT ADRIA DEL BESOS",
+      "poblacio": "Sant Adrià del Besòs",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "ip": "10.129.199.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018245",
+      "nom": "CNL MARESME",
+      "poblacio": "Mataró",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.198.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018233",
+      "nom": "CNL CAN NOE (MATARO)",
+      "poblacio": "T",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.223.99"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018542",
+      "nom": "CNL PREMIA DE MAR",
+      "poblacio": "Premià de Mar",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.220.194"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.014542",
+      "nom": "CNL L'HEURA",
+      "poblacio": "Santa Coloma de Gramanet",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.204.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.016897",
+      "nom": "CNL SABADELL",
+      "poblacio": "Sabadell",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.207.130"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.214.178"
+        }
+      ]
+    },
+    {
+      "codi": ",,",
+      "nom": "CNL SABADELL - EL VAPOR ESCAPÇAT",
+      "poblacio": "Sabadell",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.214.178"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015155",
+      "nom": "CNL SANT CUGAT DEL VALLES",
+      "poblacio": "Sant Cugat del Vallès",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.223.34"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018255",
+      "nom": "CNL VALLES OCCIDENTAL 3",
+      "poblacio": "Cerdanyola del Vallès",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.199.68"
+        },
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.199.67"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.009128",
+      "nom": "CNL MONTCADA I REIXAC",
+      "poblacio": "Montcada i Reixac",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.213.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.010175",
+      "nom": "CNL RIPOLLET",
+      "poblacio": "Ripollet",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.209.114"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.017899",
+      "nom": "CNL TERRASSA I RUBI",
+      "poblacio": "Terrassa",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.204.66"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.204.67"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.017246",
+      "nom": "CNL RUBI",
+      "poblacio": "Rubí",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.199.98"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018561",
+      "nom": "CNL MOLLET DEL VALLES",
+      "poblacio": "Mollet del Vallès",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.219.226"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.006565",
+      "nom": "CNL VALLES ORIENTAL",
+      "poblacio": "Granollers",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.207.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.013609",
+      "nom": "CNL D'OSONA",
+      "poblacio": "Vic",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.204.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.016089",
+      "nom": "CNL MONTSERRAT",
+      "poblacio": "Manresa",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.206.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018585",
+      "nom": "CNL PUIGCERDA",
+      "poblacio": "Puigcerda",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.206.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015267",
+      "nom": "CNL TARRAGONA",
+      "poblacio": "Tarragona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.206.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018584",
+      "nom": "CNL EL VENDRELL",
+      "poblacio": "El Vendrell",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.126.210.114"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.017419",
+      "nom": "CNL ALT EMPORDA",
+      "poblacio": "Figueres",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "ip": "10.129.197.194"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.013312",
+      "nom": "CNL TERRES DE L'EBRE",
+      "poblacio": "Tortosa",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.203.194"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018601",
+      "nom": "CNL CAMBRILS",
+      "poblacio": "Cambrils",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.212.146"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.010071",
+      "nom": "CNL REUS",
+      "poblacio": "Reus",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.203.130"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C36",
+          "ip": "10.129.203.132"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.013973",
+      "nom": "CNL L'ALT PENEDES I EL GARRAF",
+      "poblacio": "Vilafranca del Penedès",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.223.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.014068",
+      "nom": "CNL VILANOVA I LA GELTRU",
+      "poblacio": "Vilanova i la Geltrú",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.214.2"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.004812",
+      "nom": "CNL CERDANYOLA DEL VALLES",
+      "poblacio": "Cerdanyola del Vallès",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.199.67"
+        },
+        {
+          "marca": "SHARP",
+          "ip": "10.129.199.68"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018536",
+      "nom": "CNL MARTORELL",
+      "poblacio": "Martorell",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.197.98"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015226",
+      "nom": "CNL GIRONA",
+      "poblacio": "Girona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.161.221.151"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.001140",
+      "nom": "CNL BARCELONA",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.221.2"
+        },
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.221.3"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.007912",
+      "nom": "CNL LLEIDA",
+      "poblacio": "Lleida",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.205.130"
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015589",
+      "nom": "CNL BARCELONA - CALB",
+      "poblacio": "Barcelona",
+      "impressores": [
+        {
+          "marca": "SHARP",
+          "model": "M36",
+          "ip": "10.129.202.3"
+        },
+        {
+          "marca": "SHARP",
+          "model": "C31",
+          "ip": "10.129.202.2"
+        }
+      ]
+    }
+  ]
+}

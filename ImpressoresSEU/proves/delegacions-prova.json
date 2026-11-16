@@ -1,0 +1,65 @@
+{
+  "versio": 1,
+  "delegacions": [
+    {
+      "codi": "SEU.000001",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CNL DE GIRONA",
+      "poblacio": "Girona",
+      "xarxa": "192.0.2.0",
+      "mascara": "255.255.255.0",
+      "impressores": [
+        { "marca": "SHARP", "model": "SHARP BP-70C31 PCL6", "ip": "192.0.2.10" },
+        { "marca": "SHARP", "model": "SHARP BP-70M36 PCL6", "ip": "192.0.2.11" }
+      ]
+    },
+    {
+      "codi": "SEU.000002",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CNL DE LLEIDA",
+      "poblacio": "Lleida",
+      "xarxa": "192.0.2.0",
+      "mascara": "255.255.255.0",
+      "impressores": [
+        { "marca": "SHARP", "model": "M36", "ip": "192.0.2.20" }
+      ]
+    },
+    {
+      "codi": "SEU.000003",
+      "nom": "OFICINA DE PROVA - ESPLUGUES",
+      "poblacio": "Esplugues de Llobregat",
+      "xarxa": "192.0.2.0",
+      "mascara": "255.255.255.0",
+      "impressores": [
+        { "marca": "SHARP", "ip": "192.0.2.30" },
+        { "marca": "SHARP", "model": "SHARP BP-70C31 PCL6", "ip": "192.0.2.31" },
+        { "marca": "HP", "model": "HP LaserJet de prova", "ip": "192.0.2.32" }
+      ]
+    },
+    {
+      "codi": "SEU.000004",
+      "nom": "OFICINA DE PROVA - AMB ERRORS",
+      "poblacio": "Prova",
+      "xarxa": "192.0.2.0",
+      "mascara": "255.255.255.0",
+      "impressores": [
+        { "marca": "SHARP", "model": "C31", "ip": "192.0.2.999" },
+        { "marca": "SHARP", "model": "BP-70X99", "ip": "192.0.2.41" }
+      ]
+    },
+    {
+      "codi": "SEU.000005",
+      "nom": "OFICINA DE PROVA - SENSE IMPRESSORES",
+      "poblacio": "Prova",
+      "xarxa": "",
+      "mascara": "",
+      "impressores": []
+    },
+    {
+      "codi": "SEU.000099",
+      "nom": "",
+      "poblacio": "Prova",
+      "xarxa": "",
+      "mascara": "",
+      "impressores": []
+    }
+  ]
+}
