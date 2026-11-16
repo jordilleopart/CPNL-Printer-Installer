@@ -9,7 +9,8 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.223.66"
+          "ip": "10.129.223.66",
+          "ubicacio": ""
         }
       ]
     },
@@ -21,12 +22,32 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.201.2"
+          "ip": "10.129.201.2",
+          "ubicacio": "Planta 4"
         },
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.201.5"
+          "ip": "10.129.201.5",
+          "ubicacio": "Planta 0"
+        },
+        {
+          "marca": "HP",
+          "model": "M521dn",
+          "ip": "10.129.201.3",
+          "ubicacio": "Planta 2"
+        },
+        {
+          "marca": "EPSON",
+          "model": "",
+          "ip": "10.129.201.4",
+          "ubicacio": "Planta 5"
+        },
+        {
+          "marca": "HP",
+          "model": "Laser Jetpro M521dn",
+          "ip": "10.129.201.6",
+          "ubicacio": "Planta 3"
         }
       ]
     },
@@ -38,12 +59,20 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.222.4"
+          "ip": "10.129.222.4",
+          "ubicacio": "CV1 Sala tècnics"
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.222.3"
+          "ip": "10.129.222.3",
+          "ubicacio": "CV2 Delegació"
+        },
+        {
+          "marca": "HP",
+          "model": "LaserJet M252dw",
+          "ip": "10.129.222.2",
+          "ubicacio": "Aula1 (NPIAEA48A )"
         }
       ]
     },
@@ -55,12 +84,26 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.221.66"
+          "ip": "10.129.221.66",
+          "ubicacio": "Administració"
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.221.67"
+          "ip": "10.129.221.67",
+          "ubicacio": "Cuina"
+        },
+        {
+          "marca": "EPSON",
+          "model": "",
+          "ip": "10.129.221.68",
+          "ubicacio": "SAFD"
+        },
+        {
+          "marca": "EPSON",
+          "model": "",
+          "ip": "10.129.221.69",
+          "ubicacio": "Dinamització"
         }
       ]
     },
@@ -72,12 +115,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.220.2"
+          "ip": "10.129.220.2",
+          "ubicacio": ""
         },
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.220.3"
+          "ip": "10.129.220.3",
+          "ubicacio": ""
         }
       ]
     },
@@ -89,12 +134,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.202.130"
+          "ip": "10.129.202.130",
+          "ubicacio": "Administració"
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.202.131"
+          "ip": "10.129.202.131",
+          "ubicacio": "Professors"
         }
       ]
     },
@@ -106,7 +153,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.220.130"
+          "ip": "10.129.220.130",
+          "ubicacio": "Planta 4"
+        },
+        {
+          "marca": "HP",
+          "model": "Color LaserJet Pro M454dn",
+          "ip": "10.129.220.132",
+          "ubicacio": "Planta 0"
         }
       ]
     },
@@ -118,12 +172,20 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.221.130"
+          "ip": "10.129.221.130",
+          "ubicacio": ""
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.221.131"
+          "ip": "10.129.221.131",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "CP1525n",
+          "ip": "10.129.221.132",
+          "ubicacio": ""
         }
       ]
     },
@@ -135,7 +197,14 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.222.130"
+          "ip": "10.129.222.130",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "LaserJet 400 color M451dn",
+          "ip": "10.129.222.131",
+          "ubicacio": ""
         }
       ]
     },
@@ -147,7 +216,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.223.131"
+          "ip": "10.129.223.131",
+          "ubicacio": ""
+        },
+        {
+          "marca": "RICOH",
+          "model": "P C375",
+          "ip": "10.129.195.235",
+          "ubicacio": ""
         }
       ]
     },
@@ -159,7 +235,20 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.200.130"
+          "ip": "10.129.200.130",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "M454dn",
+          "ip": "10.129.200.131",
+          "ubicacio": "RECEPCIÓ"
+        },
+        {
+          "marca": "HP",
+          "model": "Laserjet m452dn",
+          "ip": "10.129.200.132",
+          "ubicacio": ""
         }
       ]
     },
@@ -171,7 +260,8 @@
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.203.2"
+          "ip": "10.129.203.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -183,7 +273,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.199.2"
+          "ip": "10.129.199.2",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.199.3",
+          "ubicacio": ""
         }
       ]
     },
@@ -195,7 +292,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.210.146"
+          "ip": "10.129.210.146",
+          "ubicacio": ""
         }
       ]
     },
@@ -207,7 +305,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.213.98"
+          "ip": "10.129.213.98",
+          "ubicacio": ""
         }
       ]
     },
@@ -219,7 +318,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.220.210"
+          "ip": "10.129.220.210",
+          "ubicacio": ""
         }
       ]
     },
@@ -231,7 +331,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.197.162"
+          "ip": "10.129.197.162",
+          "ubicacio": ""
         }
       ]
     },
@@ -243,7 +344,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.213.114"
+          "ip": "10.129.213.114",
+          "ubicacio": ""
         }
       ]
     },
@@ -255,7 +357,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.213.162"
+          "ip": "10.129.213.162",
+          "ubicacio": ""
         }
       ]
     },
@@ -267,7 +370,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.200.66"
+          "ip": "10.129.200.66",
+          "ubicacio": ""
         }
       ]
     },
@@ -279,7 +383,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.197.34"
+          "ip": "10.129.197.34",
+          "ubicacio": ""
         }
       ]
     },
@@ -291,7 +396,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.219.194"
+          "ip": "10.129.219.194",
+          "ubicacio": ""
         }
       ]
     },
@@ -303,7 +409,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.198.2"
+          "ip": "10.129.198.2",
+          "ubicacio": ""
+        },
+        {
+          "marca": "EPSON",
+          "model": "",
+          "ip": "10.129.198.3",
+          "ubicacio": ""
         }
       ]
     },
@@ -314,7 +427,14 @@
       "impressores": [
         {
           "marca": "SHARP",
-          "ip": "10.129.199.130"
+          "ip": "10.129.199.130",
+          "ubicacio": ""
+        },
+        {
+          "marca": "EPSON",
+          "model": "",
+          "ip": "10.129.199.131",
+          "ubicacio": ""
         }
       ]
     },
@@ -326,7 +446,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.198.130"
+          "ip": "10.129.198.130",
+          "ubicacio": ""
         }
       ]
     },
@@ -338,7 +459,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.223.99"
+          "ip": "10.129.223.99",
+          "ubicacio": ""
+        },
+        {
+          "marca": "LEXMARK",
+          "model": "Lexmark XM1242",
+          "ip": "10.129.223.98",
+          "ubicacio": ""
         }
       ]
     },
@@ -350,7 +478,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.220.194"
+          "ip": "10.129.220.194",
+          "ubicacio": ""
         }
       ]
     },
@@ -362,7 +491,20 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.204.130"
+          "ip": "10.129.204.130",
+          "ubicacio": ""
+        },
+        {
+          "marca": "RICOH",
+          "model": "P311",
+          "ip": "10.129.195.136",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.204.132",
+          "ubicacio": ""
         }
       ]
     },
@@ -374,12 +516,26 @@
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.207.130"
+          "ip": "10.129.207.130",
+          "ubicacio": ""
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.214.178"
+          "ip": "10.129.214.178",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.207.131",
+          "ubicacio": "Recepció"
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.207.132",
+          "ubicacio": "Elisabet"
         }
       ]
     },
@@ -391,7 +547,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.214.178"
+          "ip": "10.129.214.178",
+          "ubicacio": ""
         }
       ]
     },
@@ -403,7 +560,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.223.34"
+          "ip": "10.129.223.34",
+          "ubicacio": ""
         }
       ]
     },
@@ -415,12 +573,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.199.68"
+          "ip": "10.129.199.68",
+          "ubicacio": ""
         },
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.199.67"
+          "ip": "10.129.199.67",
+          "ubicacio": ""
         }
       ]
     },
@@ -432,7 +592,8 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.213.2"
+          "ip": "10.129.213.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -444,7 +605,14 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.209.114"
+          "ip": "10.129.209.114",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.209.115",
+          "ubicacio": ""
         }
       ]
     },
@@ -456,12 +624,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.204.66"
+          "ip": "10.129.204.66",
+          "ubicacio": "Direcció"
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.204.67"
+          "ip": "10.129.204.67",
+          "ubicacio": "Secretaria"
         }
       ]
     },
@@ -473,7 +643,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.199.98"
+          "ip": "10.129.199.98",
+          "ubicacio": ""
         }
       ]
     },
@@ -485,7 +656,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.219.226"
+          "ip": "10.129.219.226",
+          "ubicacio": ""
         }
       ]
     },
@@ -497,7 +669,8 @@
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.207.2"
+          "ip": "10.129.207.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -509,7 +682,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.204.2"
+          "ip": "10.129.204.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -521,7 +695,14 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.206.130"
+          "ip": "10.129.206.130",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "",
+          "ip": "10.129.206.131",
+          "ubicacio": ""
         }
       ]
     },
@@ -533,7 +714,14 @@
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.206.2"
+          "ip": "10.129.206.2",
+          "ubicacio": "formacio"
+        },
+        {
+          "marca": "RICOH",
+          "model": "IM 320F",
+          "ip": "10.129.193.98",
+          "ubicacio": ""
         }
       ]
     },
@@ -545,7 +733,8 @@
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.206.2"
+          "ip": "10.129.206.2",
+          "ubicacio": "Formacio"
         }
       ]
     },
@@ -557,7 +746,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.126.210.114"
+          "ip": "10.126.210.114",
+          "ubicacio": ""
         }
       ]
     },
@@ -568,7 +758,8 @@
       "impressores": [
         {
           "marca": "SHARP",
-          "ip": "10.129.197.194"
+          "ip": "10.129.197.194",
+          "ubicacio": ""
         }
       ]
     },
@@ -580,7 +771,13 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.203.194"
+          "ip": "10.129.203.194",
+          "ubicacio": ""
+        },
+        {
+          "marca": "RICOH",
+          "model": "P311",
+          "ubicacio": ""
         }
       ]
     },
@@ -592,7 +789,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.212.146"
+          "ip": "10.129.212.146",
+          "ubicacio": ""
         }
       ]
     },
@@ -604,12 +802,20 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.203.130"
+          "ip": "10.129.203.130",
+          "ubicacio": "Planta Baixa"
         },
         {
           "marca": "SHARP",
           "model": "C36",
-          "ip": "10.129.203.132"
+          "ip": "10.129.203.132",
+          "ubicacio": "Planta 2 Sharp"
+        },
+        {
+          "marca": "LEXMARK",
+          "model": "Lexmark MX",
+          "ip": "10.129.203.131",
+          "ubicacio": "Planta 1"
         }
       ]
     },
@@ -621,7 +827,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.223.2"
+          "ip": "10.129.223.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -633,7 +840,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.214.2"
+          "ip": "10.129.214.2",
+          "ubicacio": ""
         }
       ]
     },
@@ -645,11 +853,13 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.199.67"
+          "ip": "10.129.199.67",
+          "ubicacio": "Planta 0"
         },
         {
           "marca": "SHARP",
-          "ip": "10.129.199.68"
+          "ip": "10.129.199.68",
+          "ubicacio": "Planta 1"
         }
       ]
     },
@@ -661,7 +871,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.197.98"
+          "ip": "10.129.197.98",
+          "ubicacio": ""
         }
       ]
     },
@@ -673,7 +884,26 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.161.221.151"
+          "ip": "10.161.221.151",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 8710",
+          "ip": "10.161.221.150",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "Color Lasaerjet Pro",
+          "ip": "10.161.221.152",
+          "ubicacio": ""
+        },
+        {
+          "marca": "EPSON",
+          "model": "WF-M5799",
+          "ip": "10.161.221.153",
+          "ubicacio": ""
         }
       ]
     },
@@ -685,12 +915,26 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.221.2"
+          "ip": "10.129.221.2",
+          "ubicacio": "2-1"
         },
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.221.3"
+          "ip": "10.129.221.3",
+          "ubicacio": "3-1"
+        },
+        {
+          "marca": "EPSON",
+          "model": "WF-C5790",
+          "ip": "10.129.221.4",
+          "ubicacio": "3-2"
+        },
+        {
+          "marca": "RICOH",
+          "model": "P C375",
+          "ip": "10.129.196.139",
+          "ubicacio": "PORT 3 DEL SWITCH"
         }
       ]
     },
@@ -702,7 +946,8 @@
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.205.130"
+          "ip": "10.129.205.130",
+          "ubicacio": ""
         }
       ]
     },
@@ -714,12 +959,770 @@
         {
           "marca": "SHARP",
           "model": "M36",
-          "ip": "10.129.202.3"
+          "ip": "10.129.202.3",
+          "ubicacio": "Calb 01"
         },
         {
           "marca": "SHARP",
           "model": "C31",
-          "ip": "10.129.202.2"
+          "ip": "10.129.202.2",
+          "ubicacio": "Calb 02"
+        },
+        {
+          "marca": "EPSON",
+          "model": "WF-M5799",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018541",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ABRERA",
+      "poblacio": "Abrera",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 8132e",
+          "ip": "10.129.208.18",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018538",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CORBERA DE LLOBREGAT",
+      "poblacio": "Corbera de Llobregat",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018540",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - VALLIRANA",
+      "poblacio": "Vallirana",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.193.18",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018544",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALLEJA",
+      "poblacio": "Pallejà",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018539",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - EL MASNOU",
+      "poblacio": "El Masnou",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C311",
+          "ip": "10.96.59.13",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018557",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CALELLA",
+      "poblacio": "Calella",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Offisejet Pro 8132e",
+          "ip": "10.129.208.114",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018550",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PREMIA DE DALT",
+      "poblacio": "Premià de Dalt",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.209.83",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.019016",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - TORDERA",
+      "poblacio": "Tordera",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.192.250",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018547",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - VILASSAR DE MAR",
+      "poblacio": "Vilassar de Mar",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018543",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PINEDA DE MAR",
+      "poblacio": "Pineda de Mar",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 8120e",
+          "ip": "10.129.209.66",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018567",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - TEIA",
+      "poblacio": "Teià",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.192.242",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018553",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SANT QUIRZE DEL VALLES",
+      "poblacio": "Sant Quirze del Vallès",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 9010e",
+          "ip": "10.129.209.178",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018555",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CASTELLAR DEL VALLES",
+      "poblacio": "Castellar del Vallès",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 9010",
+          "ip": "10.129.208.34",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018551",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SANTA PERPETUA DE MOGODA",
+      "poblacio": "Santa Perpètua de Mogoda",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 8120e",
+          "ip": "19.129.213.219",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018549",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALAU-SOLITA I PLEGAMANS",
+      "poblacio": "Palau-solità i Plegamans",
+      "impressores": [
+        {
+          "marca": "EPSON",
+          "model": "WF-C5790",
+          "ip": "10.129.210.162",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018546",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SANT CELONI",
+      "poblacio": "Sant Celoni",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "9010e",
+          "ip": "10.129.209.162",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018554",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CALDES DE MONTBUI",
+      "poblacio": "Caldes de Montbui",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IMC320F",
+          "ip": "10.129.192.50",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018560",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - MONTORNES DEL VALLES",
+      "poblacio": "Montornès del Vallès",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 9010e",
+          "ip": "10.129.209.18",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015152",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LA GARRIGA",
+      "poblacio": "La Garriga",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "C320",
+          "ip": "10.129.192.106",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018565",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CARDEDEU",
+      "poblacio": "Cardedeu",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "9010",
+          "ip": "10.129.208.162",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018563",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CANOVELLES",
+      "poblacio": "Canovelles",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8710",
+          "ip": "10.129.208.146",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.013078",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - TORELLO",
+      "poblacio": "Torelló",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet 5740",
+          "ip": "10.129.210.11",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.015873",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - MANLLEU",
+      "poblacio": "Manlleu",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 8710",
+          "ip": "10.129.209.2",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8100",
+          "ip": "10.129.209.3",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018576",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - IGUALADA",
+      "poblacio": "Igualada",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 9010e",
+          "ip": "10.129.214.34",
+          "ubicacio": ""
+        },
+        {
+          "marca": "RICOH",
+          "model": "IM 320F",
+          "ip": "10.129.194.234",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018577",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ALT CAMP",
+      "poblacio": "Valls",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8120e",
+          "ip": "10.129.197.18",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018580",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CONSTANTI",
+      "poblacio": "Constantí",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018590",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CONCA DE BARBERA",
+      "poblacio": "Montblanc",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Oficejet Pro 9010",
+          "ip": "10.129.210.210",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018586",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SALOU",
+      "poblacio": "Salou",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Laser 408",
+          "ip": "10.129.213.66",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018592",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ALT URGELL",
+      "poblacio": "La Seu d'Urgell",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018591",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ALTA RIBAGORÇA",
+      "poblacio": "El Pont de Suert",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018594",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LES GARRIGUES",
+      "poblacio": "Les Borges Blanques",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018587",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LA NOGUERA",
+      "poblacio": "Balaguer",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018588",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALLARS JUSSA",
+      "poblacio": "Tremp",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018593",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALLARS SOBIRA",
+      "poblacio": "Sort",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018595",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PLA D'URGELL",
+      "poblacio": "Mollerussa",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.194.18",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018597",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LA SEGARRA",
+      "poblacio": "Cervera",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.193.131",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018598",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SEGRIA",
+      "poblacio": "Lleida",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.194.46",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018600",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SOLSONES",
+      "poblacio": "Solsona",
+      "impressores": [
+        {
+          "marca": "EPSON",
+          "model": "C5790",
+          "ip": "10.129.212.114",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018604",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - URGELL",
+      "poblacio": "Tàrrega",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8100",
+          "ip": "10.129.211.162",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018605",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PLA DE L'ESTANY",
+      "poblacio": "Banyoles",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.199.10",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018603",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ARBUCIES",
+      "poblacio": "Arbúcies",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "C311",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018596",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - BAIX EMPORDA",
+      "poblacio": "La Bisbal de l'Esmpordà",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM 320F",
+          "ip": "10.129.192.98",
+          "ubicacio": ""
+        },
+        {
+          "marca": "RICOH",
+          "model": "IM 320F",
+          "ip": "10.129.192.210",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018602",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - ROSES",
+      "poblacio": "Roses",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM C320",
+          "ip": "10.129.192.194",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018606",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LLORET DE MAR",
+      "poblacio": "Lloret de Mar",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.192.122",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018618",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - OLOT",
+      "poblacio": "Olot",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ip": "10.129.195.10",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018608",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALAFRUGELL",
+      "poblacio": "Palafrugell",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "OfficeJet Pro 9010 series",
+          "ip": "10.129.209.34",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018628",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - TORROELLA DE MONTGRI",
+      "poblacio": "Torroella de Montgrí",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "- 6970",
+          "ip": "10.129.210.18",
+          "ubicacio": ""
+        },
+        {
+          "marca": "HP",
+          "model": "- 6970",
+          "ip": "10.129.193.10",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018612",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - LA SELVA I SANTA COLOMA DE FARNERS",
+      "poblacio": "Santa Coloma de Farners",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM C401F",
+          "ip": "10.129.193.138",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018615",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - BLANES",
+      "poblacio": "Blanes",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM C401F",
+          "ip": "10.129.192.34",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018621",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SALT",
+      "poblacio": "Salt",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM C401F",
+          "ip": "10.129.192.202",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018609",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - FALSET",
+      "poblacio": "Falset",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM C320",
+          "ip": "10.129.194.26",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018614",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SANT PERE DE RIBES - LES ROQUETES",
+      "poblacio": "Sant Pere de Ribes",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018611",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SITGES",
+      "poblacio": "Sitges",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM 370",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018613",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - SANT SADURNI D'ANOIA",
+      "poblacio": "Sant Sadurní d'Anoia",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8120e",
+          "ip": "10.129.209.194",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.018969",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - CERVELLO",
+      "poblacio": "Cervelló",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "P-C375",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "SEU.019287",
+      "nom": "SLC DE BERGA (TEMPORAL)",
+      "poblacio": "Berga",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "",
+          "ip": "10.129.196.226",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
+      "codi": "",
+      "nom": "CONSORCI PER NORMALITZACIO LINGUISTICA - PALAMOS",
+      "poblacio": "Palamós",
+      "impressores": [
+        {
+          "marca": "HP",
+          "model": "Officejet Pro 8122e",
+          "ip": "10.129.213.34",
+          "ubicacio": ""
         }
       ]
     }
