@@ -1,0 +1,26 @@
+﻿2026-11-17 12:56:20 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:56:20 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:56:20 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 12:56:32 [INFO ] Delegacions triades: 2.
+2026-11-17 12:56:33 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:56:33 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:56:33 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 12:56:33 [INFO ] Delegacions triades: 2.
+2026-11-17 12:56:33 [INFO ] Delegació triada: CNL CALDES DE MONTBUI
+2026-11-17 12:56:33 [INFO ] === RICOH IMC320F - CNL CALDES DE MONTBUI (10.129.192.50) ===
+2026-11-17 12:56:34 [INFO ] Controlador 'RICOH PCL6 UniversalDriver V4.46' ja instal·lat: s'omet.
+2026-11-17 12:56:34 [INFO ] Creant el port 'IP_10.129.192.50'...
+2026-11-17 12:56:34 [INFO ] Creant la impressora 'RICOH IMC320F - CNL CALDES DE MONTBUI'...
+2026-11-17 12:56:36 [OK   ] Impressora 'RICOH IMC320F - CNL CALDES DE MONTBUI' correcta.
+2026-11-17 12:56:36 [INFO ] Delegació triada: CNL CALELLA
+2026-11-17 12:56:36 [INFO ] === HP Offisejet Pro 8132e - CNL CALELLA (10.129.208.114) ===
+2026-11-17 12:56:36 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:56:36 [INFO ] La impressora 'HP Offisejet Pro 8132e - CNL CALELLA' ja existeix: s'elimina.
+2026-11-17 12:56:36 [INFO ] El port 'IP_10.129.208.114' ja existeix: s'omet.
+2026-11-17 12:56:36 [INFO ] Creant la impressora 'HP Offisejet Pro 8132e - CNL CALELLA'...
+2026-11-17 12:56:37 [OK   ] Impressora 'HP Offisejet Pro 8132e - CNL CALELLA' correcta.
+2026-11-17 12:56:37 [INFO ] ----- RESUM -----
+2026-11-17 12:56:37 [INFO ] Impressores processades: 2
+2026-11-17 12:56:37 [OK   ] Correctes: 2
+2026-11-17 12:56:37 [INFO ] Amb error: 0
+2026-11-17 12:56:37 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_125620.log

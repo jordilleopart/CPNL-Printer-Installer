@@ -1,0 +1,30 @@
+﻿2026-11-17 13:30:12 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:30:12 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:30:12 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:30:46 [INFO ] Delegacions triades: 4.
+2026-11-17 13:30:47 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:30:47 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:30:47 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:30:47 [INFO ] Delegacions triades: 3.
+2026-11-17 13:30:47 [INFO ] Delegació triada: CNL PALAMOS
+2026-11-17 13:30:47 [INFO ] === HP Officejet Pro 8122e - CNL PALAMOS (10.129.213.34) ===
+2026-11-17 13:30:47 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:30:48 [INFO ] Creant el port 'IP_10.129.213.34'...
+2026-11-17 13:30:48 [INFO ] Creant la impressora 'HP Officejet Pro 8122e - CNL PALAMOS'...
+2026-11-17 13:30:49 [OK   ] Impressora 'HP Officejet Pro 8122e - CNL PALAMOS' correcta.
+2026-11-17 13:30:49 [INFO ] Delegació triada: CNL PALAU-SOLITA I PLEGAMANS
+2026-11-17 13:30:49 [INFO ] === EPSON WF-C5790 - CNL PALAU-SOLITA I PLEGAMANS (10.129.210.162) ===
+2026-11-17 13:30:49 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:30:49 [INFO ] Creant el port 'IP_10.129.210.162'...
+2026-11-17 13:30:49 [INFO ] Creant la impressora 'EPSON WF-C5790 - CNL PALAU-SOLITA I PLEGAMANS'...
+2026-11-17 13:30:50 [OK   ] Impressora 'EPSON WF-C5790 - CNL PALAU-SOLITA I PLEGAMANS' correcta.
+2026-11-17 13:30:50 [INFO ] Delegació triada: CNL PALLARS JUSSA
+2026-11-17 13:30:50 [AVIS ] Dades: Impressora 1: la IP és buida.
+2026-11-17 13:30:50 [INFO ] === RICOH P-C375 - CNL PALLARS JUSSA () ===
+2026-11-17 13:30:50 [ERROR] Impressora 'RICOH P-C375 - CNL PALLARS JUSSA': IP no vàlida: ''
+2026-11-17 13:30:50 [INFO ] ----- RESUM -----
+2026-11-17 13:30:50 [INFO ] Impressores processades: 3
+2026-11-17 13:30:50 [OK   ] Correctes: 2
+2026-11-17 13:30:50 [ERROR] Amb error: 1
+2026-11-17 13:30:50 [ERROR]   - RICOH P-C375 - CNL PALLARS JUSSA: IP no vàlida: ''
+2026-11-17 13:30:50 [INFO ] Durada: 3 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_133012.log

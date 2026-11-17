@@ -1,0 +1,10 @@
+﻿2026-11-17 13:28:29 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:28:29 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:28:30 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:30:03 [INFO ] Delegacions triades: 1.
+2026-11-17 13:30:03 [AVIS ] Les delegacions triades no tenen impressores SHARP, RICOH, HP, EPSON ni LEXMARK.
+2026-11-17 13:30:03 [INFO ] ----- RESUM -----
+2026-11-17 13:30:03 [INFO ] Impressores processades: 0
+2026-11-17 13:30:03 [OK   ] Correctes: 0
+2026-11-17 13:30:03 [INFO ] Amb error: 0
+2026-11-17 13:30:03 [INFO ] Durada: 94 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_132829.log

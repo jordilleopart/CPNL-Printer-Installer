@@ -221,9 +221,6 @@ if ($Delegacio) {
 }
 else {
     $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
-    if ($triades.Count -gt 0) {
-        $triades = @(Show-SelectorImpressores -Delegacions $triades -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
-    }
 }
 try {
     Import-SeleccioImpressores -Delegacions $triades -Fitxer $FitxerSeleccio

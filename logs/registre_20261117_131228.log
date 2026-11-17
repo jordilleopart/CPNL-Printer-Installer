@@ -1,0 +1,27 @@
+﻿2026-11-17 13:12:28 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:12:28 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:12:28 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:12:56 [INFO ] Delegacions triades: 4.
+2026-11-17 13:12:57 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:12:57 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:12:57 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:12:57 [INFO ] Delegacions triades: 3.
+2026-11-17 13:12:57 [INFO ] Delegació triada: CNL SALOU
+2026-11-17 13:12:57 [INFO ] === HP Laser 408 - CNL SALOU (10.129.213.66) ===
+2026-11-17 13:12:57 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:12:58 [INFO ] Creant el port 'IP_10.129.213.66'...
+2026-11-17 13:12:58 [INFO ] Creant la impressora 'HP Laser 408 - CNL SALOU'...
+2026-11-17 13:12:59 [OK   ] Impressora 'HP Laser 408 - CNL SALOU' correcta.
+2026-11-17 13:12:59 [INFO ] Delegació triada: CNL SALT
+2026-11-17 13:12:59 [INFO ] === RICOH IM C401F - CNL SALT (10.129.192.202) ===
+2026-11-17 13:12:59 [INFO ] Controlador 'RICOH PCL6 UniversalDriver V4.46' ja instal·lat: s'omet.
+2026-11-17 13:12:59 [INFO ] Creant el port 'IP_10.129.192.202'...
+2026-11-17 13:12:59 [INFO ] Creant la impressora 'RICOH IM C401F - CNL SALT'...
+2026-11-17 13:13:00 [OK   ] Impressora 'RICOH IM C401F - CNL SALT' correcta.
+2026-11-17 13:13:00 [INFO ] Delegació triada: CNL VALLES OCCIDENTAL 3
+2026-11-17 13:13:00 [AVIS ] Aquesta delegació no té impressores SHARP, RICOH, HP, EPSON ni LEXMARK.
+2026-11-17 13:13:00 [INFO ] ----- RESUM -----
+2026-11-17 13:13:00 [INFO ] Impressores processades: 2
+2026-11-17 13:13:00 [OK   ] Correctes: 2
+2026-11-17 13:13:00 [INFO ] Amb error: 0
+2026-11-17 13:13:00 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_131228.log

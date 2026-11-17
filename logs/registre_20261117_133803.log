@@ -1,0 +1,20 @@
+﻿2026-11-17 13:38:03 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:38:03 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:38:03 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:38:17 [INFO ] Delegacions triades: 3.
+2026-11-17 13:38:18 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:38:18 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:38:18 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:38:18 [INFO ] Delegacions triades: 2.
+2026-11-17 13:38:18 [INFO ] Delegació triada: CNL ALT URGELL
+2026-11-17 13:38:18 [AVIS ] Dades: Impressora 1: la IP és buida.
+2026-11-17 13:38:18 [INFO ] === RICOH P-C375 - CNL ALT URGELL () ===
+2026-11-17 13:38:18 [ERROR] Impressora 'RICOH P-C375 - CNL ALT URGELL': IP no vàlida: ''
+2026-11-17 13:38:18 [INFO ] Delegació triada: CNL BADALONA I SANT ADRIÀ
+2026-11-17 13:38:18 [AVIS ] Aquesta delegació no té impressores SHARP, RICOH, HP, EPSON ni LEXMARK.
+2026-11-17 13:38:19 [INFO ] ----- RESUM -----
+2026-11-17 13:38:19 [INFO ] Impressores processades: 1
+2026-11-17 13:38:19 [OK   ] Correctes: 0
+2026-11-17 13:38:19 [ERROR] Amb error: 1
+2026-11-17 13:38:19 [ERROR]   - RICOH P-C375 - CNL ALT URGELL: IP no vàlida: ''
+2026-11-17 13:38:19 [INFO ] Durada: 0 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_133803.log

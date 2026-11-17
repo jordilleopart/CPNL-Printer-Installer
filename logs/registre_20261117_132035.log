@@ -1,0 +1,40 @@
+﻿2026-11-17 13:20:35 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:20:35 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:20:35 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:22:03 [INFO ] Delegacions triades: 3.
+2026-11-17 13:22:05 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:22:05 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:22:05 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:22:05 [INFO ] Delegacions triades: 2.
+2026-11-17 13:22:05 [INFO ] Delegació triada: CNL RIPOLLET
+2026-11-17 13:22:05 [INFO ] === SHARP BP-70M36 - CNL RIPOLLET (10.129.209.114) ===
+2026-11-17 13:22:06 [INFO ] Controlador 'SHARP BP-70M36 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:22:06 [INFO ] Creant el port 'IP_10.129.209.114'...
+2026-11-17 13:22:06 [INFO ] Creant la impressora 'SHARP BP-70M36 - CNL RIPOLLET'...
+2026-11-17 13:22:08 [OK   ] Impressora 'SHARP BP-70M36 - CNL RIPOLLET' correcta.
+2026-11-17 13:22:08 [INFO ] === HP - CNL RIPOLLET (10.129.209.115) ===
+2026-11-17 13:22:08 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:22:08 [INFO ] Creant el port 'IP_10.129.209.115'...
+2026-11-17 13:22:08 [INFO ] Creant la impressora 'HP - CNL RIPOLLET'...
+2026-11-17 13:22:09 [OK   ] Impressora 'HP - CNL RIPOLLET' correcta.
+2026-11-17 13:22:09 [INFO ] Delegació triada: CNL SABADELL
+2026-11-17 13:22:09 [INFO ] === SHARP BP-70C36 - CNL SABADELL (10.129.207.130) ===
+2026-11-17 13:22:09 [INFO ] Controlador 'SHARP BP-70C36 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:22:09 [INFO ] El port 'IP_10.129.207.130' ja existeix: s'omet.
+2026-11-17 13:22:09 [INFO ] Creant la impressora 'SHARP BP-70C36 - CNL SABADELL'...
+2026-11-17 13:22:11 [OK   ] Impressora 'SHARP BP-70C36 - CNL SABADELL' correcta.
+2026-11-17 13:22:11 [INFO ] === SHARP BP-70C31 - CNL SABADELL (10.129.214.178) ===
+2026-11-17 13:22:11 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:22:11 [INFO ] El port 'IP_10.129.214.178' ja existeix: s'omet.
+2026-11-17 13:22:11 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL SABADELL'...
+2026-11-17 13:22:13 [OK   ] Impressora 'SHARP BP-70C31 - CNL SABADELL' correcta.
+2026-11-17 13:22:13 [INFO ] === HP - CNL SABADELL Recepció (10.129.207.131) ===
+2026-11-17 13:22:13 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:22:13 [INFO ] Creant el port 'IP_10.129.207.131'...
+2026-11-17 13:22:13 [INFO ] Creant la impressora 'HP - CNL SABADELL Recepció'...
+2026-11-17 13:22:14 [OK   ] Impressora 'HP - CNL SABADELL Recepció' correcta.
+2026-11-17 13:22:14 [INFO ] ----- RESUM -----
+2026-11-17 13:22:14 [INFO ] Impressores processades: 5
+2026-11-17 13:22:14 [OK   ] Correctes: 5
+2026-11-17 13:22:14 [INFO ] Amb error: 0
+2026-11-17 13:22:14 [INFO ] Durada: 9 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_132035.log

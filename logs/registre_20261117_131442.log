@@ -1,0 +1,45 @@
+﻿2026-11-17 13:14:42 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:14:42 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:14:42 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:16:57 [INFO ] Delegacions triades: 5.
+2026-11-17 13:16:58 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:16:58 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:16:58 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:16:58 [INFO ] Delegacions triades: 4.
+2026-11-17 13:16:58 [INFO ] Delegació triada: CNL SANT JUST DESVERN
+2026-11-17 13:16:59 [INFO ] === SHARP BP-70C31 - CNL SANT JUST DESVERN (10.129.213.162) ===
+2026-11-17 13:16:59 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:16:59 [INFO ] Creant el port 'IP_10.129.213.162'...
+2026-11-17 13:16:59 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL SANT JUST DESVERN'...
+2026-11-17 13:17:01 [OK   ] Impressora 'SHARP BP-70C31 - CNL SANT JUST DESVERN' correcta.
+2026-11-17 13:17:02 [INFO ] Delegació triada: CNL TERRASSA I RUBI
+2026-11-17 13:17:02 [INFO ] === SHARP BP-70C31 - CNL TERRASSA I RUBI Direcció (10.129.204.66) ===
+2026-11-17 13:17:02 [INFO ] El port 'IP_10.129.204.66' ja existeix: s'omet.
+2026-11-17 13:17:02 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL TERRASSA I RUBI Direcció'...
+2026-11-17 13:17:04 [OK   ] Impressora 'SHARP BP-70C31 - CNL TERRASSA I RUBI Direcció' correcta.
+2026-11-17 13:17:04 [INFO ] === SHARP BP-70C31 - CNL TERRASSA I RUBI Secretaria (10.129.204.67) ===
+2026-11-17 13:17:04 [INFO ] El port 'IP_10.129.204.67' ja existeix: s'omet.
+2026-11-17 13:17:04 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL TERRASSA I RUBI Secretaria'...
+2026-11-17 13:17:05 [OK   ] Impressora 'SHARP BP-70C31 - CNL TERRASSA I RUBI Secretaria' correcta.
+2026-11-17 13:17:06 [INFO ] Delegació triada: CNL TERRES DE L'EBRE
+2026-11-17 13:17:06 [AVIS ] Dades: Impressora 2: la IP és buida.
+2026-11-17 13:17:06 [INFO ] === SHARP BP-70C31 - CNL TERRES DE L'EBRE (10.129.203.194) ===
+2026-11-17 13:17:06 [INFO ] Creant el port 'IP_10.129.203.194'...
+2026-11-17 13:17:06 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL TERRES DE L'EBRE'...
+2026-11-17 13:17:08 [OK   ] Impressora 'SHARP BP-70C31 - CNL TERRES DE L'EBRE' correcta.
+2026-11-17 13:17:08 [INFO ] Delegació triada: CNL TORROELLA DE MONTGRI
+2026-11-17 13:17:08 [INFO ] === HP - 6970 - CNL TORROELLA DE MONTGRI 1 (10.129.210.18) ===
+2026-11-17 13:17:08 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:17:08 [INFO ] Creant el port 'IP_10.129.210.18'...
+2026-11-17 13:17:08 [INFO ] Creant la impressora 'HP - 6970 - CNL TORROELLA DE MONTGRI 1'...
+2026-11-17 13:17:08 [OK   ] Impressora 'HP - 6970 - CNL TORROELLA DE MONTGRI 1' correcta.
+2026-11-17 13:17:08 [INFO ] === HP - 6970 - CNL TORROELLA DE MONTGRI 2 (10.129.193.10) ===
+2026-11-17 13:17:08 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:17:09 [INFO ] Creant el port 'IP_10.129.193.10'...
+2026-11-17 13:17:09 [INFO ] Creant la impressora 'HP - 6970 - CNL TORROELLA DE MONTGRI 2'...
+2026-11-17 13:17:09 [OK   ] Impressora 'HP - 6970 - CNL TORROELLA DE MONTGRI 2' correcta.
+2026-11-17 13:17:09 [INFO ] ----- RESUM -----
+2026-11-17 13:17:09 [INFO ] Impressores processades: 6
+2026-11-17 13:17:09 [OK   ] Correctes: 6
+2026-11-17 13:17:09 [INFO ] Amb error: 0
+2026-11-17 13:17:09 [INFO ] Durada: 11 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_131442.log

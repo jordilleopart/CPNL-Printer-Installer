@@ -1,0 +1,58 @@
+﻿2026-11-17 13:48:44 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:48:44 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:48:44 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:49:08 [INFO ] Delegacions triades: 3.
+2026-11-17 13:49:09 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:49:10 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:49:10 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:49:10 [INFO ] Delegacions triades: 3.
+2026-11-17 13:49:10 [INFO ] Delegació triada: CNL BAIX LLOBREGAT CENTRE
+2026-11-17 13:49:10 [INFO ] === SHARP BP-70M36 - CNL BAIX LLOBREGAT CENTRE (10.129.223.66) ===
+2026-11-17 13:49:11 [INFO ] Controlador 'SHARP BP-70M36 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:49:11 [INFO ] Creant el port 'IP_10.129.223.66'...
+2026-11-17 13:49:11 [INFO ] Creant la impressora 'SHARP BP-70M36 - CNL BAIX LLOBREGAT CENTRE'...
+2026-11-17 13:49:13 [OK   ] Impressora 'SHARP BP-70M36 - CNL BAIX LLOBREGAT CENTRE' correcta.
+2026-11-17 13:49:13 [INFO ] Delegació triada: CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA
+2026-11-17 13:49:13 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV1 Sala tècnics (10.129.222.4) ===
+2026-11-17 13:49:13 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:49:13 [INFO ] Creant el port 'IP_10.129.222.4'...
+2026-11-17 13:49:13 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV1 Sala tècnics'...
+2026-11-17 13:49:15 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV1 Sala tècnics' correcta.
+2026-11-17 13:49:15 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV2 Delegació (10.129.222.3) ===
+2026-11-17 13:49:15 [INFO ] Creant el port 'IP_10.129.222.3'...
+2026-11-17 13:49:15 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV2 Delegació'...
+2026-11-17 13:49:17 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA CV2 Delegació' correcta.
+2026-11-17 13:49:17 [INFO ] === HP LaserJet M252dw - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA Aula1 (NPIAEA48A ) (10.129.222.2) ===
+2026-11-17 13:49:17 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:49:18 [INFO ] Creant el port 'IP_10.129.222.2'...
+2026-11-17 13:49:18 [INFO ] Creant la impressora 'HP LaserJet M252dw - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA Aula1 (NPIAEA48A )'...
+2026-11-17 13:49:18 [OK   ] Impressora 'HP LaserJet M252dw - CNL BARCELONA - ESPAI AVINYÓ - LLENGUA I CULTURA Aula1 (NPIAEA48A )' correcta.
+2026-11-17 13:49:18 [INFO ] Delegació triada: CNL BARCELONA - SERVEIS CENTRALS
+2026-11-17 13:49:18 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4 (10.129.201.2) ===
+2026-11-17 13:49:18 [INFO ] La impressora 'SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4' ja existeix: s'elimina.
+2026-11-17 13:49:19 [INFO ] El port 'IP_10.129.201.2' ja existeix: s'omet.
+2026-11-17 13:49:19 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4'...
+2026-11-17 13:49:21 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4' correcta.
+2026-11-17 13:49:21 [INFO ] === HP M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 2 (10.129.201.3) ===
+2026-11-17 13:49:21 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:49:21 [INFO ] La impressora 'HP M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 2' ja existeix: s'elimina.
+2026-11-17 13:49:21 [INFO ] El port 'IP_10.129.201.3' ja existeix: s'omet.
+2026-11-17 13:49:21 [INFO ] Creant la impressora 'HP M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 2'...
+2026-11-17 13:49:22 [OK   ] Impressora 'HP M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 2' correcta.
+2026-11-17 13:49:22 [INFO ] === HP Laser Jetpro M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 3 (10.129.201.6) ===
+2026-11-17 13:49:22 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:49:22 [INFO ] La impressora 'HP Laser Jetpro M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 3' ja existeix: s'elimina.
+2026-11-17 13:49:23 [INFO ] El port 'IP_10.129.201.6' ja existeix: s'omet.
+2026-11-17 13:49:23 [INFO ] Creant la impressora 'HP Laser Jetpro M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 3'...
+2026-11-17 13:49:23 [OK   ] Impressora 'HP Laser Jetpro M521dn - CNL BARCELONA - SERVEIS CENTRALS Planta 3' correcta.
+2026-11-17 13:49:23 [INFO ] === EPSON - CNL BARCELONA - SERVEIS CENTRALS Planta 5 (10.129.201.4) ===
+2026-11-17 13:49:24 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:49:24 [INFO ] La impressora 'EPSON - CNL BARCELONA - SERVEIS CENTRALS Planta 5' ja existeix: s'elimina.
+2026-11-17 13:49:24 [INFO ] El port 'IP_10.129.201.4' ja existeix: s'omet.
+2026-11-17 13:49:24 [INFO ] Creant la impressora 'EPSON - CNL BARCELONA - SERVEIS CENTRALS Planta 5'...
+2026-11-17 13:49:25 [OK   ] Impressora 'EPSON - CNL BARCELONA - SERVEIS CENTRALS Planta 5' correcta.
+2026-11-17 13:49:25 [INFO ] ----- RESUM -----
+2026-11-17 13:49:25 [INFO ] Impressores processades: 8
+2026-11-17 13:49:25 [OK   ] Correctes: 8
+2026-11-17 13:49:25 [INFO ] Amb error: 0
+2026-11-17 13:49:25 [INFO ] Durada: 15 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_134844.log

@@ -1,0 +1,28 @@
+﻿2026-11-17 13:09:17 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:09:17 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:09:18 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 13:09:39 [INFO ] Delegacions triades: 3.
+2026-11-17 13:09:40 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 13:09:40 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 13:09:41 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 13:09:41 [INFO ] Delegacions triades: 2.
+2026-11-17 13:09:41 [INFO ] Delegació triada: CNL ALT CAMP
+2026-11-17 13:09:41 [INFO ] === HP Officejet Pro 8120e - CNL ALT CAMP (10.129.197.18) ===
+2026-11-17 13:09:41 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 13:09:41 [INFO ] La impressora 'HP Officejet Pro 8120e - CNL ALT CAMP' ja existeix: s'elimina.
+2026-11-17 13:09:42 [INFO ] El port 'IP_10.129.197.18' ja existeix: s'omet.
+2026-11-17 13:09:42 [INFO ] Creant la impressora 'HP Officejet Pro 8120e - CNL ALT CAMP'...
+2026-11-17 13:09:43 [OK   ] Impressora 'HP Officejet Pro 8120e - CNL ALT CAMP' correcta.
+2026-11-17 13:09:43 [INFO ] Delegació triada: CNL ALT EMPORDA
+2026-11-17 13:09:43 [INFO ] 'SHARP BP-70C31 - CNL ALT EMPORDA': no indica model, s'usa el per defecte (SHARP BP-70C31 PCL6).
+2026-11-17 13:09:43 [INFO ] === SHARP BP-70C31 - CNL ALT EMPORDA (10.129.197.194) ===
+2026-11-17 13:09:43 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 13:09:43 [INFO ] La impressora 'SHARP BP-70C31 - CNL ALT EMPORDA' ja existeix: s'elimina.
+2026-11-17 13:09:43 [INFO ] El port 'IP_10.129.197.194' ja existeix: s'omet.
+2026-11-17 13:09:43 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL ALT EMPORDA'...
+2026-11-17 13:09:44 [OK   ] Impressora 'SHARP BP-70C31 - CNL ALT EMPORDA' correcta.
+2026-11-17 13:09:44 [INFO ] ----- RESUM -----
+2026-11-17 13:09:44 [INFO ] Impressores processades: 2
+2026-11-17 13:09:44 [OK   ] Correctes: 2
+2026-11-17 13:09:44 [INFO ] Amb error: 0
+2026-11-17 13:09:44 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_130917.log
