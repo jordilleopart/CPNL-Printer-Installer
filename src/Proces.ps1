@@ -60,6 +60,10 @@ function Install-Delegacio {
     foreach ($configuracio in $configuracions) {
         # Obté les impressores de la marca, ja amb el nom final i el controlador resolt
         $impressores = @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca $configuracio.Marca -ModelPerDefecte $ModelDefecte -ModelRicoh $configuracio.Model)
+        if ($Delegacio.PSObject.Properties.Name -contains 'impressoresSeleccionades') {
+            $seleccionades = @($Delegacio.impressoresSeleccionades | ForEach-Object { [string]$_ })
+            $impressores = @($impressores | Where-Object { $seleccionades -contains $_.Nom })
+        }
         $totalImpressores += $impressores.Count
 
         # Instal·la cada impressora; si una falla, les altres continuen

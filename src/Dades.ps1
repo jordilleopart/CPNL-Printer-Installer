@@ -271,3 +271,32 @@ function Get-ImpressoresDelegacio {
     }
     return $resultat
 }
+
+# Retorna totes les impressores compatibles d'una delegació, agrupades per marca
+function Get-ImpressoresCompatibles {
+    param(
+        $Delegacio,
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
+    )
+    $resultat = @()
+    $resultat += @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca 'SHARP' -ModelPerDefecte $ModelPerDefecte)
+    $resultat += @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca 'RICOH' -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)
+    foreach ($marca in @('HP', 'EPSON', 'LEXMARK')) {
+        $resultat += @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca $marca -ModelPerDefecte $ModelPerDefecte)
+    }
+    return @($resultat)
+}
+
+# Retorna només les impressores que l'usuari ha seleccionat, o totes si no hi ha filtre
+function Get-ImpressoresCompatiblesSeleccionades {
+    param(
+        $Delegacio,
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
+    )
+    $impressores = @(Get-ImpressoresCompatibles -Delegacio $Delegacio -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)
+    if (-not ($Delegacio.PSObject.Properties.Name -contains 'impressoresSeleccionades')) { return $impressores }
+    $seleccionades = @($Delegacio.impressoresSeleccionades | ForEach-Object { [string]$_ })
+    return @($impressores | Where-Object { $seleccionades -contains $_.Nom })
+}

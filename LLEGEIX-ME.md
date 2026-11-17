@@ -60,14 +60,14 @@ Si una directiva de grup (GPO) ho impedeix, mireu `PUNTS_DE_FALLADA.md`.
 
 ## Ús
 
-**Usuari final:** doble clic a `INSTALAR_IMPRESSORES.bat`. Windows demana permís d'administrador; després es tria la delegació i es prem el botó.
+**Usuari final:** doble clic a `INSTALAR_IMPRESSORES.bat`. Windows demana permís d'administrador; després es tria la delegació, es desmarquen les impressores que no es volen instal·lar i es prem el botó.
 
 **Administrador** (`.\src\Instalar.ps1` amb opcions):
 
 | Opció | Què fa |
 |---|---|
 | `-Simulacio` | No canvia res: només mostra què faria. No cal ser administrador. |
-| `-Delegacio "eixample","corts"` | No obre la finestra de selecció. Cada text ha de trobar exactament una delegació; si no, no s'instal·la res. |
+| `-Delegacio "eixample","corts"` | No obre la finestra de selecció. Cada text ha de trobar exactament una delegació; instal·la totes les impressores d'aquestes delegacions. |
 | `-SenseFinestres` | No mostra cap finestra, només la consola. Cal indicar també `-Delegacio` i executar-ho ja com a administrador. Retorna codi de sortida 0 (correcte) o 1 (error). Pensat per a desplegaments automàtics. |
 | `-Fitxer ruta.json` | Fa servir un altre fitxer de dades (per exemple `proves\delegacions-prova.json`). |
 | `-ModelPerDefecte C31` | Controlador per a les impressores que no indiquen model (per defecte, C31). |
@@ -87,7 +87,7 @@ Per repartir l'eina com una aplicació (icona al menú Inici o a l'escriptori, s
 
 1. La icona obre PowerShell amagat amb `Instalar.ps1`, que demana el permís d'administrador i es torna a obrir amb ell.
 2. Mostra la finestra per triar delegacions.
-3. La instal·lació la fa un **procés fill amagat** (el mateix `Instalar.ps1` en mode `-SenseFinestres`) que escriu al registre. La finestra de progrés llegeix aquest registre cada mig segon, mou la barra i, quan el procés acaba, mostra «Fet!» o els errors. El botó «Mostra el registre» l'obre al Bloc de notes.
+3. La instal·lació la fa un **procés fill amagat** (el mateix `Instalar.ps1` en mode `-SenseFinestres`) que escriu al registre. La tercera pantalla llegeix aquest registre i actualitza cada impressora agrupada per delegació: mostra un indicador mentre s'instal·la i un vist quan acaba.
 
 Sense instal·lador, la mateixa aplicació funciona amb el doble clic a `INSTALAR_IMPRESSORES.bat`.
 
@@ -136,8 +136,8 @@ Abans d'escriure guarda una còpia del JSON antic (`impressores.anterior.json`) 
 
 | Fitxer | Què fa |
 |---|---|
-| `Instalar.ps1` | Programa principal: demana permís d'administrador, llegeix les dades, tria les delegacions i en mode aplicació mostra el progrés; en mode `-SenseFinestres` fa la instal·lació. |
-| `Finestra.ps1` | Les finestres: missatges, selector de delegacions amb quadradets i finestra de progrés. |
+| `Instalar.ps1` | Programa principal: demana permís d'administrador, llegeix les dades, coordina les tres pantalles i en mode `-SenseFinestres` fa la instal·lació. |
+| `Finestra.ps1` | Les finestres: selecció d'oficines, selecció d'impressores i estat de la instal·lació. |
 | `Proces.ps1` | `Install-Delegacio`: instal·la totes les impressores SHARP, RICOH, HP, EPSON i LEXMARK d'una delegació. També tria la carpeta de registres. |
 | `Motor.ps1` | `Install-Controlador` (una vegada per model), `Install-Impressora` (port + cua) i `Invoke-Impressora` (no s'atura si falla). |
 | `Dades.ps1` | Llegeix el JSON, valida, cerca per nom sense accents ni majúscules, resol els models (`C31`, `M36`, `C36`) i construeix els noms. |

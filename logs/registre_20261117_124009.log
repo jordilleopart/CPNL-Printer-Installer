@@ -1,0 +1,19 @@
+﻿2026-11-17 12:40:09 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:40:09 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:40:10 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 12:40:16 [INFO ] Delegacions triades: 1.
+2026-11-17 12:40:17 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:40:17 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:40:18 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 12:40:18 [INFO ] Delegacions triades: 1.
+2026-11-17 12:40:18 [INFO ] Delegació triada: CNL ALT CAMP
+2026-11-17 12:40:18 [INFO ] === HP Officejet Pro 8120e - CNL ALT CAMP (10.129.197.18) ===
+2026-11-17 12:40:18 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:40:19 [INFO ] Creant el port 'IP_10.129.197.18'...
+2026-11-17 12:40:20 [INFO ] Creant la impressora 'HP Officejet Pro 8120e - CNL ALT CAMP'...
+2026-11-17 12:40:21 [OK   ] Impressora 'HP Officejet Pro 8120e - CNL ALT CAMP' correcta.
+2026-11-17 12:40:21 [INFO ] ----- RESUM -----
+2026-11-17 12:40:21 [INFO ] Impressores processades: 1
+2026-11-17 12:40:21 [OK   ] Correctes: 1
+2026-11-17 12:40:21 [INFO ] Amb error: 0
+2026-11-17 12:40:21 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_124009.log

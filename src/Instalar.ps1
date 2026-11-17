@@ -27,6 +27,8 @@ param(
     [switch]$SenseFinestres,
     # (Intern) Fitxer de text amb un nom de delegació per línia; substitueix -Delegacio
     [string]$FitxerDelegacions,
+    # (Intern) Fitxer JSON amb la selecció d'impressores de cada delegació
+    [string]$FitxerSeleccio,
     # (Intern) Fitxer de registre on s'ha d'escriure, en comptes de crear-ne un de nou
     [string]$FitxerRegistre
 )
@@ -47,6 +49,71 @@ function Export-NomsDelegacions {
     $ruta = Join-Path $env:TEMP ('impressores_delegacions_{0}.txt' -f [guid]::NewGuid().ToString('N'))
     [System.IO.File]::WriteAllLines($ruta, $Noms, (New-Object System.Text.UTF8Encoding($false)))
     return $ruta
+}
+
+# Desa la selecció d'impressores perquè el procés fill la pugui recuperar
+function Export-SeleccioImpressores {
+    param([object[]]$Delegacions)
+    $seleccions = New-Object System.Collections.Generic.List[object]
+    foreach ($delegacio in @($Delegacions)) {
+        $noms = @($delegacio.impressoresSeleccionades | ForEach-Object { [string]$_ })
+        if ($noms.Count -eq 0) {
+            $seleccions.Add([ordered]@{
+                Codi        = [string]$delegacio.codi
+                Impressora  = ''
+            })
+            continue
+        }
+        foreach ($nom in $noms) {
+            $seleccions.Add([ordered]@{
+                Codi       = [string]$delegacio.codi
+                Impressora = $nom
+            })
+        }
+    }
+    $ruta = Join-Path $env:TEMP ('impressores_seleccio_{0}.json' -f [guid]::NewGuid().ToString('N'))
+    $document = [ordered]@{ Registres = $seleccions.ToArray() }
+    $json = ConvertTo-Json -InputObject $document -Depth 4
+    [System.IO.File]::WriteAllText($ruta, $json, (New-Object System.Text.UTF8Encoding($false)))
+    return $ruta
+}
+
+# Carrega la selecció d'impressores creada pel procés principal
+function Import-SeleccioImpressores {
+    param(
+        [object[]]$Delegacions,
+        [string]$Fitxer
+    )
+    if (-not $Fitxer) { return }
+    try {
+        if (-not (Test-Path -LiteralPath $Fitxer)) { throw "No es troba el fitxer de selecció: $Fitxer" }
+        $json = Get-Content -LiteralPath $Fitxer -Raw -Encoding UTF8
+        $document = ConvertFrom-Json -InputObject $json
+        $seleccions = @($document.Registres)
+        $perCodi = @{}
+        foreach ($seleccio in $seleccions) {
+            $codi = [string]$seleccio.Codi
+            if (-not $perCodi.ContainsKey($codi)) {
+                $perCodi[$codi] = New-Object System.Collections.Generic.List[string]
+            }
+            if (-not [string]::IsNullOrWhiteSpace([string]$seleccio.Impressora)) {
+                $perCodi[$codi].Add([string]$seleccio.Impressora)
+            }
+        }
+        foreach ($delegacio in @($Delegacions)) {
+            $codi = [string]$delegacio.codi
+            if (-not $perCodi.ContainsKey($codi)) {
+                throw "La selecció no correspon a l'oficina amb codi '$codi'."
+            }
+            $delegacio | Add-Member -NotePropertyName impressoresSeleccionades -NotePropertyValue @($perCodi[$codi]) -Force
+        }
+    }
+    catch {
+        throw "No s'ha pogut llegir la selecció d'impressores: $($_.Exception.Message)"
+    }
+    finally {
+        Remove-Item -LiteralPath $Fitxer -ErrorAction SilentlyContinue
+    }
 }
 
 # Atura l'execució amb error en mode sense finestres (en mode normal, el codi continua amb el return de qui crida)
@@ -154,6 +221,19 @@ if ($Delegacio) {
 }
 else {
     $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
+    if ($triades.Count -gt 0) {
+        $triades = @(Show-SelectorImpressores -Delegacions $triades -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
+    }
+}
+try {
+    Import-SeleccioImpressores -Delegacions $triades -Fitxer $FitxerSeleccio
+}
+catch {
+    Write-Registre -Nivell ERROR -Text $_.Exception.Message
+    Complete-Registre | Out-Null
+    Show-Missatge -Icona Error -Text "No s'ha pogut llegir la selecció d'impressores.`n`n$($_.Exception.Message)`n`nAvisa el servei informàtic i envia'ls aquest fitxer:`n$script:FitxerLog"
+    Stop-AmbError
+    return
 }
 if ($triades.Count -eq 0) {
     Write-Registre -Nivell AVIS -Text "No s'ha triat cap delegació: no es fa res."
@@ -166,11 +246,7 @@ if (-not $SenseFinestres) {
     # MODE APLICACIÓ: la instal·lació la fa un procés fill (amagat) i aquesta finestra en mostra el progrés
     $totalImpressores = 0
     foreach ($triada in $triades) {
-        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'SHARP' -ModelPerDefecte $modelDefecte).Count
-        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'RICOH' -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh).Count
-        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'HP' -ModelPerDefecte $modelDefecte).Count
-        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'EPSON' -ModelPerDefecte $modelDefecte).Count
-        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'LEXMARK' -ModelPerDefecte $modelDefecte).Count
+        $totalImpressores += @(Get-ImpressoresCompatiblesSeleccionades -Delegacio $triada -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh).Count
     }
     if ($totalImpressores -eq 0) {
         Write-Registre -Nivell AVIS -Text 'Les delegacions triades no tenen impressores SHARP, RICOH, HP, EPSON ni LEXMARK.'
@@ -180,8 +256,9 @@ if (-not $SenseFinestres) {
     }
     # Desa els noms triats en un fitxer perquè el procés fill els llegeixi
     $fitxerNoms = Export-NomsDelegacions -Noms @($triades | ForEach-Object { $_.nom })
+    $fitxerSeleccio = Export-SeleccioImpressores -Delegacions $triades
     # Paràmetres del procés fill: aquest mateix script, en mode sense finestres i escrivint al mateix registre
-    $parametresFill = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -SenseFinestres -Fitxer "{1}" -ModelPerDefecte "{2}" -ModelRicoh "{3}" -FitxerDelegacions "{4}" -FitxerRegistre "{5}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte, $ModelRicoh, $fitxerNoms, $script:FitxerLog
+    $parametresFill = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -SenseFinestres -Fitxer "{1}" -ModelPerDefecte "{2}" -ModelRicoh "{3}" -FitxerDelegacions "{4}" -FitxerSeleccio "{5}" -FitxerRegistre "{6}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte, $ModelRicoh, $fitxerNoms, $fitxerSeleccio, $script:FitxerLog
     if ($Simulacio) { $parametresFill += ' -Simulacio' }
     # El procés fill comença a llegir el registre just després del que ja s'ha escrit
     $posicioInicial = (Get-Item -LiteralPath $script:FitxerLog).Length
@@ -189,7 +266,7 @@ if (-not $SenseFinestres) {
     # Accedir al Handle fa que Windows conservi el codi de sortida del procés
     $null = $fill.Handle
     # Mostra el progrés fins que el procés fill acaba (el resultat ja es veu a la mateixa finestra)
-    [void](Show-Progres -Proces $fill -FitxerRegistre $script:FitxerLog -PosicioInicial $posicioInicial -TotalImpressores $totalImpressores -Simulacio:$Simulacio)
+    [void](Show-Installacio -Proces $fill -FitxerRegistre $script:FitxerLog -PosicioInicial $posicioInicial -Delegacions $triades -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh -Simulacio:$Simulacio)
     return
 }
 

@@ -1,0 +1,13 @@
+﻿2026-11-17 12:34:47 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:34:47 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:34:47 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 12:35:06 [INFO ] Delegacions triades: 2.
+2026-11-17 12:35:07 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:35:07 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:35:07 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 12:35:07 [ERROR] No s'ha pogut llegir la selecció d'impressores: La selecció no correspon a la delegació 'CNL GIRONA CNL LA SEGARRA'.
+2026-11-17 12:35:07 [INFO ] ----- RESUM -----
+2026-11-17 12:35:07 [INFO ] Impressores processades: 0
+2026-11-17 12:35:07 [OK   ] Correctes: 0
+2026-11-17 12:35:07 [INFO ] Amb error: 0
+2026-11-17 12:35:07 [INFO ] Durada: 0 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_123447.log

@@ -1,0 +1,43 @@
+﻿2026-11-17 12:45:29 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:45:29 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:45:29 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 12:45:49 [INFO ] Delegacions triades: 5.
+2026-11-17 12:45:50 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 12:45:50 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 12:45:50 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 12:45:50 [INFO ] Delegacions triades: 5.
+2026-11-17 12:45:50 [INFO ] Delegació triada: CNL CALELLA
+2026-11-17 12:45:50 [INFO ] === HP Offisejet Pro 8132e - CNL CALELLA (10.129.208.114) ===
+2026-11-17 12:45:50 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:45:51 [INFO ] Creant el port 'IP_10.129.208.114'...
+2026-11-17 12:45:51 [INFO ] Creant la impressora 'HP Offisejet Pro 8132e - CNL CALELLA'...
+2026-11-17 12:45:52 [OK   ] Impressora 'HP Offisejet Pro 8132e - CNL CALELLA' correcta.
+2026-11-17 12:45:52 [INFO ] Delegació triada: CNL CAMBRILS
+2026-11-17 12:45:52 [INFO ] === SHARP BP-70C31 - CNL CAMBRILS (10.129.212.146) ===
+2026-11-17 12:45:52 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 12:45:52 [INFO ] El port 'IP_10.129.212.146' ja existeix: s'omet.
+2026-11-17 12:45:52 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL CAMBRILS'...
+2026-11-17 12:45:54 [OK   ] Impressora 'SHARP BP-70C31 - CNL CAMBRILS' correcta.
+2026-11-17 12:45:54 [INFO ] Delegació triada: CNL CAN NOE (MATARO)
+2026-11-17 12:45:54 [INFO ] === LEXMARK XM1242 - CNL CAN NOE (MATARO) (10.129.223.98) ===
+2026-11-17 12:45:54 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:45:54 [INFO ] Creant el port 'IP_10.129.223.98'...
+2026-11-17 12:45:54 [INFO ] Creant la impressora 'LEXMARK XM1242 - CNL CAN NOE (MATARO)'...
+2026-11-17 12:45:55 [OK   ] Impressora 'LEXMARK XM1242 - CNL CAN NOE (MATARO)' correcta.
+2026-11-17 12:45:55 [INFO ] Delegació triada: CNL CANOVELLES
+2026-11-17 12:45:55 [INFO ] === HP Officejet Pro 8710 - CNL CANOVELLES (10.129.208.146) ===
+2026-11-17 12:45:55 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:45:55 [INFO ] Creant el port 'IP_10.129.208.146'...
+2026-11-17 12:45:55 [INFO ] Creant la impressora 'HP Officejet Pro 8710 - CNL CANOVELLES'...
+2026-11-17 12:45:56 [OK   ] Impressora 'HP Officejet Pro 8710 - CNL CANOVELLES' correcta.
+2026-11-17 12:45:56 [INFO ] Delegació triada: CNL CARDEDEU
+2026-11-17 12:45:56 [INFO ] === HP 9010 - CNL CARDEDEU (10.129.208.162) ===
+2026-11-17 12:45:56 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 12:45:56 [INFO ] Creant el port 'IP_10.129.208.162'...
+2026-11-17 12:45:56 [INFO ] Creant la impressora 'HP 9010 - CNL CARDEDEU'...
+2026-11-17 12:45:56 [OK   ] Impressora 'HP 9010 - CNL CARDEDEU' correcta.
+2026-11-17 12:45:56 [INFO ] ----- RESUM -----
+2026-11-17 12:45:56 [INFO ] Impressores processades: 5
+2026-11-17 12:45:56 [OK   ] Correctes: 5
+2026-11-17 12:45:56 [INFO ] Amb error: 0
+2026-11-17 12:45:56 [INFO ] Durada: 7 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_124529.log

@@ -1,7 +1,7 @@
 ﻿#Requires -Version 5.1
 <#
   Finestra.ps1: finestres senzilles (Windows Forms) per a l'usuari final:
-  missatges i selector de delegacions. Necessita que Dades.ps1 estigui carregat.
+  missatges i selectors de delegacions i impressores. Necessita que Dades.ps1 estigui carregat.
   No s'executa sol: el carreguen els altres scripts amb ". .\Finestra.ps1".
 #>
 
@@ -108,7 +108,7 @@ function Show-SelectorDelegacions {
     $capcalera.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
     $subtitol = New-Object System.Windows.Forms.Label
-    $subtitol.Text = 'Tria una o més delegacions per començar.'
+    $subtitol.Text = 'Pas 1 de 3 · Tria una o més delegacions per començar.'
     $subtitol.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
     $subtitol.Location = New-Object System.Drawing.Point(26, 53)
     $subtitol.Size = New-Object System.Drawing.Size(640, 24)
@@ -159,7 +159,7 @@ function Show-SelectorDelegacions {
 
     # Botó per continuar (no es pot prémer fins que hi ha delegacions marcades amb impressores)
     $boto = New-Object System.Windows.Forms.Button
-    $boto.Text = 'Instal·la les impressores'
+    $boto.Text = 'Continua'
     $boto.Location = New-Object System.Drawing.Point(453, 545)
     $boto.Size = New-Object System.Drawing.Size(211, 38)
     $boto.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right
@@ -283,6 +283,163 @@ function Show-SelectorDelegacions {
     $triades = @($Delegacions | Where-Object { $estat.Triades.Contains($_.nom) })
     $form.Dispose()
     if ($resposta -eq [System.Windows.Forms.DialogResult]::OK) { return $triades }
+    return
+}
+
+# Mostra les impressores de les delegacions triades i retorna la selecció feta
+function Show-SelectorImpressores {
+    param(
+        [object[]]$Delegacions,
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
+    )
+    $files = @()
+    foreach ($delegacio in $Delegacions) {
+        foreach ($impressora in @(Get-ImpressoresCompatibles -Delegacio $delegacio -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)) {
+            $files += [pscustomobject]@{
+                Clau       = "$($delegacio.nom)|$($impressora.Nom)"
+                Delegacio  = $delegacio.nom
+                Nom        = $impressora.Nom
+                IP         = $impressora.IP
+                Oficina    = Get-NomCurt $delegacio.nom
+                Text       = "$(Get-NomCurt $delegacio.nom)  ·  $($impressora.Nom) [$($impressora.IP)]"
+            }
+        }
+    }
+    $files = @($files | Sort-Object Oficina, Nom, IP)
+    if ($files.Count -eq 0) { return }
+
+    $estat = @{
+        Visibles = @()
+        Triades  = New-Object 'System.Collections.Generic.HashSet[string]'
+        Omplint  = $false
+    }
+    foreach ($fila in $files) { [void]$estat.Triades.Add($fila.Clau) }
+
+    $form = New-Object System.Windows.Forms.Form
+    $form.Text = "Selecciona les impressores"
+    $form.StartPosition = 'CenterScreen'
+    $form.ClientSize = New-Object System.Drawing.Size(820, 650)
+    $form.MinimumSize = New-Object System.Drawing.Size(700, 650)
+    $form.FormBorderStyle = 'Sizable'
+    $form.MaximizeBox = $false
+    $form.TopMost = $true
+    $form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
+    $form.BackColor = [System.Drawing.Color]::FromArgb(245, 247, 250)
+    Set-IconaFinestra -Finestra $form
+
+    $capcalera = New-Object System.Windows.Forms.Label
+    $capcalera.Text = 'Selecciona les impressores'
+    $capcalera.Font = New-Object System.Drawing.Font('Segoe UI', 16, [System.Drawing.FontStyle]::Bold)
+    $capcalera.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $capcalera.Location = New-Object System.Drawing.Point(24, 18)
+    $capcalera.Size = New-Object System.Drawing.Size(760, 34)
+    $capcalera.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+
+    $subtitol = New-Object System.Windows.Forms.Label
+    $subtitol.Text = 'Pas 2 de 3 · Impressores agrupades per oficina. Totes estan seleccionades per defecte.'
+    $subtitol.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
+    $subtitol.Location = New-Object System.Drawing.Point(26, 53)
+    $subtitol.Size = New-Object System.Drawing.Size(760, 24)
+    $subtitol.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+
+    $quadreText = New-Object System.Windows.Forms.TextBox
+    $quadreText.Location = New-Object System.Drawing.Point(24, 91)
+    $quadreText.Size = New-Object System.Drawing.Size(760, 28)
+    $quadreText.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $quadreText.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+
+    $llista = New-Object System.Windows.Forms.CheckedListBox
+    $llista.CheckOnClick = $true
+    $llista.Location = New-Object System.Drawing.Point(24, 133)
+    $llista.Size = New-Object System.Drawing.Size(760, 410)
+    $llista.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $llista.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+
+    $info = New-Object System.Windows.Forms.Label
+    $info.Location = New-Object System.Drawing.Point(24, 553)
+    $info.Size = New-Object System.Drawing.Size(760, 35)
+    $info.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $info.Padding = New-Object System.Windows.Forms.Padding(12, 8, 12, 8)
+    $info.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+    $info.BackColor = [System.Drawing.Color]::White
+    $info.ForeColor = [System.Drawing.Color]::FromArgb(55, 65, 81)
+
+    $cancela = New-Object System.Windows.Forms.Button
+    $cancela.Text = 'Cancel·la'
+    $cancela.Location = New-Object System.Drawing.Point(24, 598)
+    $cancela.Size = New-Object System.Drawing.Size(105, 38)
+    $cancela.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left
+    $cancela.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+    Set-EstilBoto -Boto $cancela -Fons ([System.Drawing.Color]::FromArgb(229, 231, 235)) -Text ([System.Drawing.Color]::FromArgb(31, 41, 55))
+
+    $totes = New-Object System.Windows.Forms.Button
+    $totes.Text = 'Marca-ho tot'
+    $totes.Location = New-Object System.Drawing.Point(144, 598)
+    $totes.Size = New-Object System.Drawing.Size(125, 38)
+    $totes.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left
+    Set-EstilBoto -Boto $totes -Fons ([System.Drawing.Color]::FromArgb(107, 114, 128))
+
+    $boto = New-Object System.Windows.Forms.Button
+    $boto.Text = 'Continua'
+    $boto.Location = New-Object System.Drawing.Point(580, 598)
+    $boto.Size = New-Object System.Drawing.Size(204, 38)
+    $boto.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right
+    $boto.DialogResult = [System.Windows.Forms.DialogResult]::OK
+    Set-EstilBoto -Boto $boto -Fons ([System.Drawing.Color]::FromArgb(185, 28, 28))
+    $form.CancelButton = $cancela
+
+    $actualitza = {
+        $info.Text = "Impressores seleccionades: $($estat.Triades.Count) de $($files.Count)"
+        $boto.Enabled = ($estat.Triades.Count -gt 0)
+    }
+    $omple = {
+        $filtre = Get-TextNormalitzat $quadreText.Text
+        $estat.Visibles = @($files | Where-Object {
+            $filtre -eq '' -or (Get-TextNormalitzat $_.Text).Contains($filtre)
+        })
+        $estat.Omplint = $true
+        $llista.BeginUpdate()
+        $llista.Items.Clear()
+        foreach ($fila in $estat.Visibles) {
+            [void]$llista.Items.Add($fila.Text, $estat.Triades.Contains($fila.Clau))
+        }
+        $llista.EndUpdate()
+        $estat.Omplint = $false
+        & $actualitza
+    }
+    $llista.Add_ItemCheck({
+        param($remitent, $e)
+        if ($estat.Omplint) { return }
+        $fila = $estat.Visibles[$e.Index]
+        if ($e.NewValue -eq [System.Windows.Forms.CheckState]::Checked) {
+            [void]$estat.Triades.Add($fila.Clau)
+        }
+        else {
+            [void]$estat.Triades.Remove($fila.Clau)
+        }
+        & $actualitza
+    })
+    $quadreText.Add_TextChanged({ & $omple })
+    $totes.Add_Click({
+        foreach ($fila in $files) { [void]$estat.Triades.Add($fila.Clau) }
+        & $omple
+    })
+    $form.Add_Shown({ $quadreText.Focus() })
+    $form.Controls.AddRange(@($capcalera, $subtitol, $quadreText, $llista, $info, $cancela, $totes, $boto))
+    & $omple
+
+    $resposta = $form.ShowDialog()
+    if ($resposta -eq [System.Windows.Forms.DialogResult]::OK) {
+        foreach ($delegacio in $Delegacions) {
+            $seleccionades = @($files | Where-Object {
+                $_.Delegacio -eq $delegacio.nom -and $estat.Triades.Contains($_.Clau)
+            } | ForEach-Object { $_.Nom })
+            $delegacio | Add-Member -NotePropertyName impressoresSeleccionades -NotePropertyValue $seleccionades -Force
+        }
+    }
+    $form.Dispose()
+    if ($resposta -eq [System.Windows.Forms.DialogResult]::OK) { return $Delegacions }
     return
 }
 
@@ -492,6 +649,233 @@ function Show-Progres {
     [void]$form.ShowDialog()
     $temporitzador.Dispose()
     $animacio.Dispose()
+    $form.Dispose()
+    return [pscustomobject]@{ Codi = $estat.Codi; Correctes = $estat.Correctes; Errors = $estat.Errors }
+}
+
+# Mostra la instal·lació com una llista agrupada per delegació, sense barra de progrés
+function Show-Installacio {
+    param(
+        [System.Diagnostics.Process]$Proces,
+        [string]$FitxerRegistre,
+        [long]$PosicioInicial,
+        [object[]]$Delegacions,
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46',
+        [switch]$Simulacio
+    )
+    $files = @()
+    foreach ($delegacio in $Delegacions) {
+        foreach ($impressora in @(Get-ImpressoresCompatiblesSeleccionades -Delegacio $delegacio -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)) {
+            $files += [pscustomobject]@{
+                Clau      = "$($delegacio.nom)|$($impressora.Nom)|$($impressora.IP)"
+                Delegacio = $delegacio.nom
+                Nom       = $impressora.Nom
+                IP        = $impressora.IP
+                Estat     = 'pendent'
+                Icona     = $null
+                Text      = $null
+            }
+        }
+    }
+
+    $estat = @{
+        Posicio   = $PosicioInicial
+        Text      = ''
+        Fase      = 0
+        Acabat    = $false
+        Codi      = $null
+        Correctes = 0
+        Errors    = 0
+        ExitVist  = $false
+    }
+    $formes = @('|', '/', '-', '\')
+
+    $form = New-Object System.Windows.Forms.Form
+    $form.Text = "Instal·lació d'impressores"
+    $form.StartPosition = 'CenterScreen'
+    $form.ClientSize = New-Object System.Drawing.Size(760, 650)
+    $form.MinimumSize = New-Object System.Drawing.Size(700, 500)
+    $form.FormBorderStyle = 'Sizable'
+    $form.MaximizeBox = $false
+    $form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
+    $form.BackColor = [System.Drawing.Color]::FromArgb(245, 247, 250)
+    Set-IconaFinestra -Finestra $form
+
+    $titol = New-Object System.Windows.Forms.Label
+    $titol.Text = 'Pas 3 de 3 · Instal·lant les impressores'
+    $titol.Font = New-Object System.Drawing.Font('Segoe UI', 16, [System.Drawing.FontStyle]::Bold)
+    $titol.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $titol.Location = New-Object System.Drawing.Point(24, 18)
+    $titol.Size = New-Object System.Drawing.Size(710, 34)
+    $titol.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+
+    $textEstat = New-Object System.Windows.Forms.Label
+    $textEstat.Text = 'No tanquis aquesta finestra mentre es processen les impressores.'
+    $textEstat.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
+    $textEstat.Location = New-Object System.Drawing.Point(26, 53)
+    $textEstat.Size = New-Object System.Drawing.Size(710, 24)
+    $textEstat.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+
+    $llista = New-Object System.Windows.Forms.FlowLayoutPanel
+    $llista.Location = New-Object System.Drawing.Point(24, 90)
+    $llista.Size = New-Object System.Drawing.Size(710, 490)
+    $llista.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $llista.FlowDirection = [System.Windows.Forms.FlowDirection]::TopDown
+    $llista.WrapContents = $false
+    $llista.AutoScroll = $true
+    $llista.Padding = New-Object System.Windows.Forms.Padding(8)
+    $llista.BackColor = [System.Drawing.Color]::White
+    $llista.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+
+    foreach ($delegacio in $Delegacions) {
+        $impressores = @($files | Where-Object { $_.Delegacio -eq $delegacio.nom })
+        if ($impressores.Count -eq 0) { continue }
+        $grup = New-Object System.Windows.Forms.Panel
+        $grup.Width = 665
+        $grup.Height = 36 + ($impressores.Count * 34)
+        $grup.Margin = New-Object System.Windows.Forms.Padding(0, 0, 0, 12)
+        $grup.BackColor = [System.Drawing.Color]::FromArgb(249, 250, 251)
+        $capcalera = New-Object System.Windows.Forms.Label
+        $capcalera.Text = Get-NomCurt $delegacio.nom
+        $capcalera.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
+        $capcalera.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+        $capcalera.Location = New-Object System.Drawing.Point(12, 7)
+        $capcalera.Size = New-Object System.Drawing.Size(640, 24)
+        [void]$grup.Controls.Add($capcalera)
+        $filaIndex = 0
+        foreach ($fila in $impressores) {
+            $filaPanel = New-Object System.Windows.Forms.Panel
+            $filaPanel.Location = New-Object System.Drawing.Point(12, (34 + ($filaIndex * 34)))
+            $filaPanel.Size = New-Object System.Drawing.Size(640, 30)
+            $filaPanel.BackColor = [System.Drawing.Color]::White
+            $icona = New-Object System.Windows.Forms.Label
+            $icona.Text = '·'
+            $icona.Font = New-Object System.Drawing.Font('Segoe UI', 12, [System.Drawing.FontStyle]::Bold)
+            $icona.ForeColor = [System.Drawing.Color]::FromArgb(107, 114, 128)
+            $icona.TextAlign = [System.Drawing.ContentAlignment]::MiddleCenter
+            $icona.Location = New-Object System.Drawing.Point(8, 2)
+            $icona.Size = New-Object System.Drawing.Size(28, 26)
+            $nom = New-Object System.Windows.Forms.Label
+            $nom.Text = $fila.Nom
+            $nom.ForeColor = [System.Drawing.Color]::FromArgb(55, 65, 81)
+            $nom.Location = New-Object System.Drawing.Point(44, 4)
+            $nom.Size = New-Object System.Drawing.Size(580, 24)
+            $nom.AutoEllipsis = $true
+            [void]$filaPanel.Controls.Add($icona)
+            [void]$filaPanel.Controls.Add($nom)
+            [void]$grup.Controls.Add($filaPanel)
+            $fila.Icona = $icona
+            $fila.Text = $nom
+            $filaIndex++
+        }
+        [void]$llista.Controls.Add($grup)
+    }
+
+    $botoTanca = New-Object System.Windows.Forms.Button
+    $botoTanca.Text = 'Tanca'
+    $botoTanca.Location = New-Object System.Drawing.Point(564, 595)
+    $botoTanca.Size = New-Object System.Drawing.Size(170, 38)
+    $botoTanca.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right
+    $botoTanca.Enabled = $false
+    $botoTanca.DialogResult = [System.Windows.Forms.DialogResult]::OK
+    Set-EstilBoto -Boto $botoTanca -Fons ([System.Drawing.Color]::FromArgb(185, 28, 28))
+
+    $finalitza = {
+        $temporitzador.Stop()
+        $estat.Acabat = $true
+        $estat.Codi = $Proces.ExitCode
+        $m = [regex]::Match($estat.Text, 'Correctes: (\d+)')
+        if ($m.Success) { $estat.Correctes = [int]$m.Groups[1].Value }
+        $m = [regex]::Match($estat.Text, 'Amb error: (\d+)')
+        if ($m.Success) { $estat.Errors = [int]$m.Groups[1].Value }
+        foreach ($fila in $files | Where-Object { $_.Estat -eq 'pendent' -or $_.Estat -eq 'instal·lant' }) {
+            $fila.Estat = 'error'
+            $fila.Icona.Text = '!'
+            $fila.Icona.ForeColor = [System.Drawing.Color]::Firebrick
+        }
+        $sufix = if ($Simulacio) { " (SIMULACIÓ: no s'ha canviat res)" } else { '' }
+        if ($estat.Errors -eq 0 -and $estat.Codi -eq 0) {
+            $titol.Text = 'Fet!'
+            $titol.ForeColor = [System.Drawing.Color]::ForestGreen
+            $textEstat.Text = "Totes les impressores seleccionades s'han processat correctament.$sufix"
+        }
+        else {
+            $titol.Text = 'Instal·lació finalitzada amb incidències'
+            $titol.ForeColor = [System.Drawing.Color]::DarkOrange
+            $textEstat.Text = "Algunes impressores no s'han pogut instal·lar. Consulta el registre si cal.$sufix"
+        }
+        $botoTanca.Enabled = $true
+    }
+
+    $temporitzador = New-Object System.Windows.Forms.Timer
+    $temporitzador.Interval = 250
+    $temporitzador.Add_Tick({
+        $nou = ''
+        try {
+            $fitxer = [System.IO.File]::Open($FitxerRegistre, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::ReadWrite)
+            try {
+                [void]$fitxer.Seek($estat.Posicio, [System.IO.SeekOrigin]::Begin)
+                $lector = New-Object System.IO.StreamReader($fitxer, [System.Text.Encoding]::UTF8)
+                $nou = $lector.ReadToEnd()
+                $estat.Posicio = $fitxer.Position
+                $lector.Dispose()
+            }
+            finally { $fitxer.Dispose() }
+        }
+        catch { $nou = '' }
+        if ($nou) {
+            $estat.Text += $nou
+            foreach ($m in [regex]::Matches($nou, '=== (.+?) \(([^)]+)\) ===')) {
+                $fila = $files | Where-Object { $_.Nom -eq $m.Groups[1].Value -and $_.IP -eq $m.Groups[2].Value } | Select-Object -First 1
+                if ($fila) {
+                    $fila.Estat = 'instal·lant'
+                    $fila.Icona.Text = $formes[$estat.Fase]
+                    $fila.Icona.ForeColor = [System.Drawing.Color]::FromArgb(185, 28, 28)
+                    $textEstat.Text = "Instal·lant: $($fila.Nom)"
+                }
+            }
+            foreach ($m in [regex]::Matches($nou, "Impressora '(.+?)' correcta\.")) {
+                $fila = $files | Where-Object { $_.Nom -eq $m.Groups[1].Value } | Select-Object -First 1
+                if ($fila) {
+                    $fila.Estat = 'correcte'
+                    $fila.Icona.Text = '✓'
+                    $fila.Icona.ForeColor = [System.Drawing.Color]::ForestGreen
+                }
+            }
+            foreach ($m in [regex]::Matches($nou, "Impressora '(.+?)':")) {
+                $fila = $files | Where-Object { $_.Nom -eq $m.Groups[1].Value } | Select-Object -First 1
+                if ($fila -and $fila.Estat -ne 'correcte') {
+                    $fila.Estat = 'error'
+                    $fila.Icona.Text = '!'
+                    $fila.Icona.ForeColor = [System.Drawing.Color]::Firebrick
+                }
+            }
+        }
+        $estat.Fase = ($estat.Fase + 1) % $formes.Count
+        foreach ($fila in ($files | Where-Object { $_.Estat -eq 'instal·lant' })) {
+            $fila.Icona.Text = $formes[$estat.Fase]
+        }
+        if ($Proces.HasExited) {
+            if ($estat.ExitVist) { & $finalitza } else { $estat.ExitVist = $true }
+        }
+    })
+
+    $form.Add_FormClosing({
+        param($remitent, $e)
+        if (-not $estat.Acabat) {
+            $resposta = [System.Windows.Forms.MessageBox]::Show(
+                "La instal·lació encara no ha acabat. Si tanques la finestra, continuarà en segon pla.`n`nVols tancar-la igualment?",
+                "Instal·lació d'impressores",
+                [System.Windows.Forms.MessageBoxButtons]::YesNo,
+                [System.Windows.Forms.MessageBoxIcon]::Question)
+            if ($resposta -ne [System.Windows.Forms.DialogResult]::Yes) { $e.Cancel = $true }
+        }
+    })
+    $form.Controls.AddRange(@($titol, $textEstat, $llista, $botoTanca))
+    $temporitzador.Start()
+    [void]$form.ShowDialog()
+    $temporitzador.Dispose()
     $form.Dispose()
     return [pscustomobject]@{ Codi = $estat.Codi; Correctes = $estat.Correctes; Errors = $estat.Errors }
 }

@@ -12,13 +12,14 @@ Els controladors només s'instal·len quan cal.
 
 - Cerca i selecció de delegacions per nom, sense distingir majúscules ni accents.
 - Instal·lació de diverses impressores d'una o més delegacions.
+- Selecció individual de les impressores que es volen instal·lar dins de cada delegació.
 - Suport per als models SHARP C31, M36 i C36.
 - Suport per al controlador universal RICOH PCL6.
 - Suport per a impressores HP amb el controlador IPP integrat de Windows, sense paquet addicional.
 - Suport per a impressores EPSON i LEXMARK amb el controlador IPP integrat de Windows, sense paquet addicional.
 - Reexecució segura: elimina i recrea la impressora amb el mateix nom sense
   crear duplicats.
-- Finestra de progrés i registre detallat de cada execució.
+- Estat de cada impressora durant la instal·lació i registre detallat de cada execució.
 - Mode de simulació que no modifica l'ordinador.
 - Mode sense finestres per a desplegaments automatitzats.
 - Conversió de dades d'un CSV exportat des d'Excel a JSON.
@@ -46,8 +47,11 @@ Els controladors només s'instal·len quan cal.
    fitxer abans d'extreure'l.
 3. Executeu [`INSTALAR_IMPRESSORES.bat`](INSTALAR_IMPRESSORES.bat) amb doble
    clic.
-4. Accepteu el permís d'administrador, seleccioneu la delegació i premeu
-   **Instal·la les impressores**.
+4. Accepteu el permís d'administrador i seleccioneu una o més delegacions.
+5. A la segona finestra, deixa marcades només les impressores que vulguis
+   instal·lar i prem **Continua**.
+6. A la tercera pantalla, revisa l'estat agrupat per oficina fins que totes
+   les impressores mostrin el vist de finalització.
 
 Abans de fer una instal·lació real, es recomana executar:
 
@@ -65,7 +69,7 @@ Abans de fer una instal·lació real, es recomana executar:
 # Simular una instal·lació
 .\src\Instalar.ps1 -Simulacio
 
-# Instal·lar una delegació concreta
+# Instal·lar una delegació concreta (totes les seves impressores)
 .\src\Instalar.ps1 -Delegacio "nom de la delegació"
 
 # Executar sense finestres, per a desplegaments automatitzats
@@ -77,6 +81,8 @@ Abans de fer una instal·lació real, es recomana executar:
 
 `-SenseFinestres` retorna el codi `0` si tot acaba correctament i `1` si hi ha
 errors. Cal executar-lo com a administrador i indicar sempre `-Delegacio`.
+La selecció individual d'impressores està disponible a la finestra gràfica;
+les execucions amb `-Delegacio` instal·len totes les impressores de la delegació.
 
 ## Dades de les impressores
 
@@ -135,7 +141,7 @@ actualitzacions i desplegament silenciós.
 | [`src/Dades.ps1`](src/Dades.ps1) | Lectura, validació i resolució de models |
 | [`src/Motor.ps1`](src/Motor.ps1) | Instal·lació de controladors, ports i impressores |
 | [`src/Proces.ps1`](src/Proces.ps1) | Processament d'una delegació |
-| [`src/Finestra.ps1`](src/Finestra.ps1) | Selector i finestra de progrés |
+| [`src/Finestra.ps1`](src/Finestra.ps1) | Pantalles de selecció i estat de la instal·lació |
 | [`src/Comprova.ps1`](src/Comprova.ps1) | Diagnòstic sense instal·lar res |
 | [`dades/`](dades/) | Fitxers JSON de configuració |
 | [`controladors/`](controladors/) | Paquets de controladors |

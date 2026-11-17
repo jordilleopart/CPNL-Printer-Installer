@@ -18,10 +18,13 @@ COM FER-HO
 4. Marca amb el quadradet la teva delegació. (Si en tens més d'una, les pots
    marcar totes.)
 
-5. Prem "Instal·la les impressores".
+5. S'obrirà una segona finestra amb les impressores de les delegacions. Totes
+   estan marcades per defecte; desmarca les que no vulguis instal·lar i prem
+   "Continua".
 
-6. Veuràs una finestra amb una barra que avança. NO LA TANQUIS. Espera uns
-   minuts.
+6. Veuràs una tercera pantalla amb una llista agrupada per delegació. Cada impressora mostrarà un
+   indicador mentre s'instal·la i un vist quan hagi acabat. NO TANQUIS la
+   finestra; espera uns minuts.
 
 7. Quan surti "Fet!", prem "Tanca". Ja ho tens.
 
