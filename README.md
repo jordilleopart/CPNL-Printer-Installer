@@ -1,18 +1,21 @@
 # Impressores SEU
 
-Eina per instal·lar automàticament les impressores **SHARP** de les delegacions
+Eina per instal·lar automàticament les impressores **SHARP, RICOH, HP, EPSON i LEXMARK** de les delegacions
 del SEU en ordinadors Windows.
 
 L'aplicació llegeix les delegacions i les adreces IP des de
 [`dades/impressores.json`](dades/impressores.json), permet seleccionar una o
-més delegacions i crea les impressores amb ports TCP/IP RAW (9100). El
-controlador SHARP s'instal·la només quan cal.
+més delegacions i crea les impressores amb ports TCP/IP RAW (9100).
+Els controladors només s'instal·len quan cal.
 
 ## Funcionalitats
 
 - Cerca i selecció de delegacions per nom, sense distingir majúscules ni accents.
 - Instal·lació de diverses impressores d'una o més delegacions.
 - Suport per als models SHARP C31, M36 i C36.
+- Suport per al controlador universal RICOH PCL6.
+- Suport per a impressores HP amb el controlador IPP integrat de Windows, sense paquet addicional.
+- Suport per a impressores EPSON i LEXMARK amb el controlador IPP integrat de Windows, sense paquet addicional.
 - Reexecució segura: elimina i recrea la impressora amb el mateix nom sense
   crear duplicats.
 - Finestra de progrés i registre detallat de cada execució.
@@ -20,8 +23,8 @@ controlador SHARP s'instal·la només quan cal.
 - Mode sense finestres per a desplegaments automatitzats.
 - Conversió de dades d'un CSV exportat des d'Excel a JSON.
 
-> **Abast actual:** els scripts instal·len impressores SHARP. Tot i que el
-> repositori pot contenir altres controladors, no s'instal·len automàticament.
+> **Abast actual:** els scripts instal·len impressores SHARP, RICOH, HP, EPSON i LEXMARK. Les altres
+> marques del JSON no s'instal·len automàticament.
 
 ## Requisits
 
@@ -30,6 +33,8 @@ controlador SHARP s'instal·la només quan cal.
 - Carpeta del projecte en un disc local, no en una unitat de xarxa.
 - Controlador SHARP disponible a:
   `controladors\SHARP_Driver\PCL6\64bit\su3emesp.inf`
+- Controlador RICOH disponible a:
+  `controladors\RICOH\disk1\oemsetup.inf`
 - Servei d'impressió de Windows (`Spooler`) en funcionament.
 
 ## Ús ràpid
@@ -76,8 +81,9 @@ errors. Cal executar-lo com a administrador i indicar sempre `-Delegacio`.
 ## Dades de les impressores
 
 El fitxer [`dades/impressores.json`](dades/impressores.json) conté les
-delegacions i les impressores. Cada impressora SHARP necessita una adreça IP i
-pot indicar el model:
+delegacions i les impressores. Cada impressora necessita una adreça IP. Les
+SHARP poden indicar `C31`, `M36` o `C36`; les RICOH fan servir el controlador
+universal. HP, EPSON i LEXMARK fan servir el controlador integrat de Windows:
 
 ```json
 {
@@ -88,15 +94,19 @@ pot indicar el model:
       "nom": "NOM DE LA DELEGACIÓ",
       "poblacio": "Població",
       "impressores": [
-        { "marca": "SHARP", "model": "C31", "ip": "192.0.2.10" }
+        { "marca": "SHARP", "model": "C31", "ip": "192.0.2.10", "ubicacio": "Planta 1" },
+        { "marca": "HP", "model": "M521dn", "ip": "192.0.2.11", "ubicacio": "Planta 2" }
       ]
     }
   ]
 }
 ```
 
-Si no s'indica el model, s'utilitza C31 per defecte. Les marques diferents de
-SHARP s'ignoren. Per actualitzar el JSON des d'un CSV:
+Si no s'indica el model d'una SHARP, s'utilitza C31 per defecte. Les marques
+diferents de SHARP, RICOH, HP, EPSON i LEXMARK s'ignoren. HP, EPSON i LEXMARK
+utilitzen `Microsoft IPP Class Driver`, que forma part de Windows i no requereix
+cap paquet del projecte. El camp opcional `ubicacio` s'afegeix al nom final de
+la impressora. Per actualitzar el JSON des d'un CSV:
 
 ```powershell
 .\src\Converteix-CsvAJson.ps1 -Csv "C:\ruta\exportacio.csv"

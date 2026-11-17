@@ -1,0 +1,40 @@
+﻿2026-11-17 10:41:44 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 10:41:44 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 10:41:45 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 10:42:37 [INFO ] Delegacions triades: 2.
+2026-11-17 10:42:38 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 10:42:38 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 10:42:38 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 10:42:38 [INFO ] Delegacions triades: 2.
+2026-11-17 10:42:38 [INFO ] Delegació triada: CNL BARCELONA - SANT ANDREU
+2026-11-17 10:42:38 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - SANT ANDREU (10.129.223.131) ===
+2026-11-17 10:42:39 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 10:42:39 [INFO ] Creant el port 'IP_10.129.223.131'...
+2026-11-17 10:42:39 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - SANT ANDREU'...
+2026-11-17 10:42:41 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - SANT ANDREU' correcta.
+2026-11-17 10:42:41 [INFO ] === RICOH P C375 - CNL BARCELONA - SANT ANDREU (10.129.195.235) ===
+2026-11-17 10:42:41 [INFO ] Controlador 'RICOH PCL6 UniversalDriver V4.46' ja instal·lat: s'omet.
+2026-11-17 10:42:41 [INFO ] Creant el port 'IP_10.129.195.235'...
+2026-11-17 10:42:41 [INFO ] Creant la impressora 'RICOH P C375 - CNL BARCELONA - SANT ANDREU'...
+2026-11-17 10:42:43 [OK   ] Impressora 'RICOH P C375 - CNL BARCELONA - SANT ANDREU' correcta.
+2026-11-17 10:42:43 [INFO ] Delegació triada: CNL L'HEURA
+2026-11-17 10:42:43 [INFO ] === SHARP BP-70C31 - CNL L'HEURA (10.129.204.130) ===
+2026-11-17 10:42:43 [INFO ] La impressora 'SHARP BP-70C31 - CNL L'HEURA' ja existeix: s'elimina.
+2026-11-17 10:42:43 [INFO ] El port 'IP_10.129.204.130' ja existeix: s'omet.
+2026-11-17 10:42:43 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL L'HEURA'...
+2026-11-17 10:42:45 [OK   ] Impressora 'SHARP BP-70C31 - CNL L'HEURA' correcta.
+2026-11-17 10:42:45 [INFO ] === RICOH P311 - CNL L'HEURA (10.129.195.136) ===
+2026-11-17 10:42:45 [INFO ] La impressora 'RICOH P311 - CNL L'HEURA' ja existeix: s'elimina.
+2026-11-17 10:42:46 [INFO ] El port 'IP_10.129.195.136' ja existeix: s'omet.
+2026-11-17 10:42:46 [INFO ] Creant la impressora 'RICOH P311 - CNL L'HEURA'...
+2026-11-17 10:42:47 [OK   ] Impressora 'RICOH P311 - CNL L'HEURA' correcta.
+2026-11-17 10:42:47 [INFO ] === HP - CNL L'HEURA (10.129.204.132) ===
+2026-11-17 10:42:47 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-17 10:42:47 [INFO ] Creant el port 'IP_10.129.204.132'...
+2026-11-17 10:42:47 [INFO ] Creant la impressora 'HP - CNL L'HEURA'...
+2026-11-17 10:42:48 [OK   ] Impressora 'HP - CNL L'HEURA' correcta.
+2026-11-17 10:42:48 [INFO ] ----- RESUM -----
+2026-11-17 10:42:48 [INFO ] Impressores processades: 5
+2026-11-17 10:42:48 [OK   ] Correctes: 5
+2026-11-17 10:42:48 [INFO ] Amb error: 0
+2026-11-17 10:42:48 [INFO ] Durada: 10 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_104144.log

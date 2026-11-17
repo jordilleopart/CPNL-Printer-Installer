@@ -88,8 +88,9 @@ else { Write-Comprovacio AVIS "No es pot escriure a la carpeta logs; els registr
 
 Write-Host "`n--- Controlador ---" -ForegroundColor Cyan
 
-# El fitxer INF ha d'existir i declarar els models que fem servir
+# Els fitxers INF han d'existir i declarar els controladors que fem servir
 $inf = Join-Path $PSScriptRoot '..\controladors\SHARP_Driver\PCL6\64bit\su3emesp.inf'
+$infRicoh = Join-Path $PSScriptRoot '..\controladors\RICOH\disk1\oemsetup.inf'
 if (Test-Path -LiteralPath $inf) {
     Write-Comprovacio OK 'Fitxer INF trobat.'
     foreach ($nomModel in ($script:ModelsSharp.Values | Sort-Object)) {
@@ -103,6 +104,17 @@ if (Test-Path -LiteralPath $inf) {
 }
 else {
     Write-Comprovacio ERROR "No es troba l'INF: $inf"
+}
+$modelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
+if (Test-Path -LiteralPath $infRicoh) {
+    Write-Comprovacio OK 'Fitxer INF RICOH trobat.'
+    if (Select-String -LiteralPath $infRicoh -Pattern $modelRicoh -SimpleMatch -Quiet) { Write-Comprovacio OK "L'INF declara '$modelRicoh'." }
+    else { Write-Comprovacio ERROR "L'INF no declara '$modelRicoh'." }
+    if (Get-PrinterDriver -Name $modelRicoh -ErrorAction SilentlyContinue) { Write-Comprovacio INFO "Windows ja té el controlador '$modelRicoh'." }
+    else { Write-Comprovacio INFO "Windows encara no té el controlador '$modelRicoh' (s'instal·larà quan calgui)." }
+}
+else {
+    Write-Comprovacio ERROR "No es troba l'INF RICOH: $infRicoh"
 }
 
 Write-Host "`n--- Dades ---" -ForegroundColor Cyan
@@ -133,21 +145,27 @@ foreach ($d in $delegacions) {
 }
 if ($ambProblemes -eq 0) { Write-Comprovacio OK 'Cap problema a les dades de les delegacions.' }
 
-# Recompte d'impressores SHARP per model i delegacions sense impressores
+# Recompte d'impressores per model i delegacions sense impressores compatibles
 $sense = 0
 $perModel = @{}
 $errorsModel = 0
 foreach ($d in $delegacions) {
-    $imp = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP')
-    if ($imp.Count -eq 0) { $sense++ }
-    foreach ($i in $imp) {
+    $impressoresDelegacio = @(
+        Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP'
+        Get-ImpressoresDelegacio -Delegacio $d -Marca 'RICOH' -ModelRicoh $modelRicoh
+        Get-ImpressoresDelegacio -Delegacio $d -Marca 'HP'
+        Get-ImpressoresDelegacio -Delegacio $d -Marca 'EPSON'
+        Get-ImpressoresDelegacio -Delegacio $d -Marca 'LEXMARK'
+    )
+    if ($impressoresDelegacio.Count -eq 0) { $sense++ }
+    foreach ($i in $impressoresDelegacio) {
         if ($i.Error) { $errorsModel++ }
         else { $perModel[$i.Model] = 1 + [int]$perModel[$i.Model] }
     }
 }
 foreach ($m in ($perModel.Keys | Sort-Object)) { Write-Comprovacio INFO "Impressores $m : $($perModel[$m])" }
 if ($errorsModel -gt 0) { Write-Comprovacio ERROR "$errorsModel impressores tenen un model desconegut." }
-if ($sense -gt 0) { Write-Comprovacio INFO "Delegacions sense impressores SHARP: $sense (no sortiran per triar)." }
+if ($sense -gt 0) { Write-Comprovacio INFO "Delegacions sense impressores SHARP/RICOH/HP/EPSON/LEXMARK: $sense (no sortiran per triar)." }
 
 # Resum final
 Write-Host ''

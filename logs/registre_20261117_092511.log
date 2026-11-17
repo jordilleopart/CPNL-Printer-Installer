@@ -1,0 +1,23 @@
+﻿2026-11-17 09:25:11 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:25:11 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:25:11 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 09:25:27 [INFO ] Delegacions triades: 1.
+2026-11-17 09:25:28 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:25:28 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:25:29 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 09:25:29 [INFO ] Delegació triada: CNL L'HEURA
+2026-11-17 09:25:29 [INFO ] === SHARP BP-70C31 - CNL L'HEURA (10.129.204.130) ===
+2026-11-17 09:25:30 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 09:25:30 [INFO ] Creant el port 'IP_10.129.204.130'...
+2026-11-17 09:25:30 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL L'HEURA'...
+2026-11-17 09:25:32 [OK   ] Impressora 'SHARP BP-70C31 - CNL L'HEURA' correcta.
+2026-11-17 09:25:32 [INFO ] === RICOH P311 - CNL L'HEURA (10.129.195.136) ===
+2026-11-17 09:25:32 [INFO ] Instal·lant controlador 'RICOH PCL6 UniversalDriver V4.46'...
+2026-11-17 09:25:41 [INFO ] Creant el port 'IP_10.129.195.136'...
+2026-11-17 09:25:41 [INFO ] Creant la impressora 'RICOH P311 - CNL L'HEURA'...
+2026-11-17 09:25:42 [OK   ] Impressora 'RICOH P311 - CNL L'HEURA' correcta.
+2026-11-17 09:25:42 [INFO ] ----- RESUM -----
+2026-11-17 09:25:42 [INFO ] Impressores processades: 2
+2026-11-17 09:25:42 [OK   ] Correctes: 2
+2026-11-17 09:25:42 [INFO ] Amb error: 0
+2026-11-17 09:25:42 [INFO ] Durada: 14 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_092511.log

@@ -1,0 +1,20 @@
+﻿2026-11-17 08:55:41 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 08:55:41 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 08:55:41 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 08:55:41 [INFO ] Delegacions triades: 1.
+2026-11-17 08:55:41 [INFO ] Delegació triada: CNL BARCELONA - SERVEIS CENTRALS
+2026-11-17 08:55:41 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4 (10.129.201.2) ===
+2026-11-17 08:55:44 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 08:55:44 [INFO ] El port 'IP_10.129.201.2' ja existeix: s'omet.
+2026-11-17 08:55:44 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4'...
+2026-11-17 08:55:47 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - SERVEIS CENTRALS Planta 4' correcta.
+2026-11-17 08:55:47 [INFO ] === SHARP BP-70M36 - CNL BARCELONA - SERVEIS CENTRALS Planta 0 (10.129.201.5) ===
+2026-11-17 08:55:47 [INFO ] Controlador 'SHARP BP-70M36 PCL6' ja instal·lat: s'omet.
+2026-11-17 08:55:47 [INFO ] El port 'IP_10.129.201.5' ja existeix: s'omet.
+2026-11-17 08:55:47 [INFO ] Creant la impressora 'SHARP BP-70M36 - CNL BARCELONA - SERVEIS CENTRALS Planta 0'...
+2026-11-17 08:55:50 [OK   ] Impressora 'SHARP BP-70M36 - CNL BARCELONA - SERVEIS CENTRALS Planta 0' correcta.
+2026-11-17 08:55:50 [INFO ] ----- RESUM -----
+2026-11-17 08:55:50 [INFO ] Impressores processades: 2
+2026-11-17 08:55:50 [OK   ] Correctes: 2
+2026-11-17 08:55:50 [INFO ] Amb error: 0
+2026-11-17 08:55:50 [INFO ] Durada: 9 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_085541.log

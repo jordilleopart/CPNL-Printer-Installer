@@ -14,6 +14,10 @@ $script:ModelsSharp = @{
     'C36' = 'SHARP BP-70C36 PCL6'
 }
 
+# Controlador integrat de Windows per a marques sense paquet propi
+$script:ModelSensePaquet = 'Microsoft IPP Class Driver'
+$script:MarquesSensePaquet = @('HP', 'EPSON', 'LEXMARK')
+
 # Retorna el text en majúscules i sense accents, per comparar noms sense errors
 function Get-TextNormalitzat {
     param([string]$Text)
@@ -173,12 +177,23 @@ function Find-Delegacio {
     })
 }
 
-# Construeix el nom final: "<MODEL> - <DELEGACIÓ>" i, si Numero és més gran que 0, hi afegeix " <Numero>"
+# Construeix el nom final: "<MARCA> <MODEL> - <DELEGACIÓ> <UBICACIÓ>"
 function Get-NomImpressora {
-    param([string]$Model, [string]$NomDelegacio, [int]$Numero = 0)
-    # Munta el nom base amb el model i el nom de la delegació
-    $nom = "$Model - $NomDelegacio"
-    # Si hi ha número d'ordre, l'afegeix al final
+    param(
+        [string]$Marca,
+        [string]$Model,
+        [string]$NomDelegacio,
+        [string]$Ubicacio,
+        [int]$Numero = 0
+    )
+    $marcaModel = if ($Model -match ('(?i)^' + [regex]::Escape($Marca) + '(\s|$)')) {
+        $Model
+    }
+    else {
+        "$Marca $Model".Trim()
+    }
+    $nom = "$marcaModel - $NomDelegacio"
+    if (-not [string]::IsNullOrWhiteSpace($Ubicacio)) { $nom = "$nom $Ubicacio" }
     if ($Numero -gt 0) { $nom = "$nom $Numero" }
     # Windows no admet la barra invertida en un nom d'impressora: es canvia per un guió
     return $nom.Replace('\', '-').Trim()
@@ -189,24 +204,38 @@ function Get-ImpressoresDelegacio {
     param(
         # Delegació (un element de la llista llegida del JSON)
         $Delegacio,
-        # Marca a instal·lar (ara només SHARP)
+        # Marca a instal·lar
         [string]$Marca = 'SHARP',
         # Controlador que s'usa quan una impressora SHARP no indica el model
-        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6'
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        # Controlador universal de RICOH
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
     )
-    # Es queda només amb les impressores d'aquesta marca (sense distingir majúscules)
-    $seleccionades = @(Get-LlistaImpressores $Delegacio | Where-Object { $_.marca -eq $Marca })
+    # Es queda només amb les impressores d'aquesta marca
+    $marcaNormalitzada = $Marca.ToUpperInvariant()
+    $seleccionades = @(Get-LlistaImpressores $Delegacio | Where-Object { ([string]$_.marca).ToUpperInvariant() -eq $marcaNormalitzada })
     $total = $seleccionades.Count
     $resultat = @()
     for ($i = 0; $i -lt $total; $i++) {
         $p = $seleccionades[$i]
-        # Només es numera si la delegació té més d'una impressora d'aquesta marca
-        $numero = if ($total -gt 1) { $i + 1 } else { 0 }
+        $ubicacio = if ($null -eq $p.ubicacio) { '' } else { ([string]$p.ubicacio).Trim() }
+        $clauModel = Get-TextNormalitzat "$($p.marca)|$($p.model)"
+        $senseUbicacio = @($seleccionades | Where-Object {
+            [string]::IsNullOrWhiteSpace($_.ubicacio) -and
+            (Get-TextNormalitzat "$($_.marca)|$($_.model)") -eq $clauModel
+        })
+        $numero = 0
+        if ([string]::IsNullOrWhiteSpace($ubicacio) -and $senseUbicacio.Count -gt 1) {
+            $numero = @($seleccionades | Select-Object -First ($i + 1) | Where-Object {
+                [string]::IsNullOrWhiteSpace($_.ubicacio) -and
+                (Get-TextNormalitzat "$($_.marca)|$($_.model)") -eq $clauModel
+            }).Count
+        }
         # Per defecte, el model és el que diu el JSON, i no hi ha cap error
         $model = $p.model
         $origen = 'JSON'
         $errorModel = ''
-        if ($Marca -eq 'SHARP') {
+        if ($marcaNormalitzada -eq 'SHARP') {
             if ([string]::IsNullOrWhiteSpace($p.model)) {
                 # Sense model al JSON: s'usa el per defecte
                 $model = $ModelPerDefecte
@@ -219,8 +248,20 @@ function Get-ImpressoresDelegacio {
                 else { $errorModel = "El model '$($p.model)' no es reconeix (cal C31, M36 o C36)." }
             }
         }
+        elseif ($marcaNormalitzada -eq 'RICOH') {
+            $model = $ModelRicoh
+        }
+        elseif ($script:MarquesSensePaquet -contains $marcaNormalitzada) {
+            $model = $script:ModelSensePaquet
+        }
+        $nomModel = if ($marcaNormalitzada -eq 'SHARP') {
+            $model -replace '\s+PCL6$', ''
+        }
+        else {
+            [string]$p.model
+        }
         $resultat += [pscustomobject]@{
-            Nom         = Get-NomImpressora -Model $model -NomDelegacio $Delegacio.nom -Numero $numero
+            Nom         = Get-NomImpressora -Marca $p.marca -Model $nomModel -NomDelegacio $Delegacio.nom -Ubicacio $ubicacio -Numero $numero
             IP          = $p.ip
             Model       = $model
             Marca       = $p.marca

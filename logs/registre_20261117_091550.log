@@ -1,0 +1,18 @@
+﻿2026-11-17 09:15:50 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:15:50 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:15:51 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 09:16:31 [INFO ] Delegacions triades: 1.
+2026-11-17 09:16:32 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:16:32 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:16:32 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 09:16:32 [INFO ] Delegacions triades: 1.
+2026-11-17 09:16:32 [INFO ] Delegació triada: CNL LLEIDA
+2026-11-17 09:16:34 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 09:16:34 [INFO ] El port 'IP_10.129.205.130' ja existeix: s'omet.
+2026-11-17 09:16:34 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL LLEIDA'...
+2026-11-17 09:16:36 [OK   ] Impressora 'SHARP BP-70C31 - CNL LLEIDA' correcta.
+2026-11-17 09:16:36 [INFO ] ----- RESUM -----
+2026-11-17 09:16:36 [INFO ] Impressores processades: 1
+2026-11-17 09:16:36 [OK   ] Correctes: 1
+2026-11-17 09:16:36 [INFO ] Amb error: 0
+2026-11-17 09:16:36 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_091550.log

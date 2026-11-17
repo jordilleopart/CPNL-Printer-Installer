@@ -1,6 +1,6 @@
 ﻿INSTAL·LACIÓ DE LES IMPRESSORES DE LA TEVA DELEGACIÓ
 
-Aquesta aplicació instal·la al teu ordinador les impressores SHARP de la teva delegació.
+Aquesta aplicació instal·la al teu ordinador les impressores SHARP, RICOH, HP, EPSON i LEXMARK de la teva delegació.
 Només cal fer-ho una vegada. Tarda uns minuts.
 
 

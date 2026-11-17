@@ -1,5 +1,5 @@
 ﻿; Script d'Inno Setup (versió 6.3 o superior) que crea l'instal·lador de l'aplicació.
-; Abans de compilar: copieu SHARP_Driver dins de ..\controladors\ i reviseu ..\dades\impressores.json.
+; Abans de compilar: copieu SHARP_Driver i RICOH dins de ..\controladors\ i reviseu ..\dades\impressores.json.
 ; Compilació: obriu aquest fitxer amb Inno Setup Compiler i premeu Build > Compile (F9).
 ; Resultat: Output\Setup_ImpressoresSEU.exe
 

@@ -1,0 +1,25 @@
+﻿2026-11-17 08:57:12 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 08:57:12 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 08:57:13 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 08:57:34 [INFO ] Delegacions triades: 1.
+2026-11-17 08:57:35 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 08:57:35 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 08:57:35 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 08:57:35 [INFO ] Delegacions triades: 1.
+2026-11-17 08:57:35 [INFO ] Delegació triada: CNL BARCELONA - CALB
+2026-11-17 08:57:35 [AVIS ] Dades: Impressora 3: la IP és buida.
+2026-11-17 08:57:36 [INFO ] === SHARP BP-70M36 - CNL BARCELONA - CALB Calb 01 (10.129.202.3) ===
+2026-11-17 08:57:37 [INFO ] Controlador 'SHARP BP-70M36 PCL6' ja instal·lat: s'omet.
+2026-11-17 08:57:37 [INFO ] Creant el port 'IP_10.129.202.3'...
+2026-11-17 08:57:37 [INFO ] Creant la impressora 'SHARP BP-70M36 - CNL BARCELONA - CALB Calb 01'...
+2026-11-17 08:57:40 [OK   ] Impressora 'SHARP BP-70M36 - CNL BARCELONA - CALB Calb 01' correcta.
+2026-11-17 08:57:40 [INFO ] === SHARP BP-70C31 - CNL BARCELONA - CALB Calb 02 (10.129.202.2) ===
+2026-11-17 08:57:40 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 08:57:40 [INFO ] Creant el port 'IP_10.129.202.2'...
+2026-11-17 08:57:40 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL BARCELONA - CALB Calb 02'...
+2026-11-17 08:57:42 [OK   ] Impressora 'SHARP BP-70C31 - CNL BARCELONA - CALB Calb 02' correcta.
+2026-11-17 08:57:42 [INFO ] ----- RESUM -----
+2026-11-17 08:57:42 [INFO ] Impressores processades: 2
+2026-11-17 08:57:42 [OK   ] Correctes: 2
+2026-11-17 08:57:42 [INFO ] Amb error: 0
+2026-11-17 08:57:42 [INFO ] Durada: 7 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_085712.log

@@ -1,0 +1,25 @@
+﻿2026-11-17 09:13:25 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:13:25 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:13:25 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-17 09:14:01 [INFO ] Delegacions triades: 2.
+2026-11-17 09:14:02 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-17 09:14:02 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-17 09:14:02 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-17 09:14:02 [INFO ] Delegacions triades: 2.
+2026-11-17 09:14:02 [INFO ] Delegació triada: CNL ALT EMPORDA
+2026-11-17 09:14:03 [INFO ] 'SHARP BP-70C31 - CNL ALT EMPORDA': no indica model, s'usa el per defecte (SHARP BP-70C31 PCL6).
+2026-11-17 09:14:03 [INFO ] === SHARP BP-70C31 - CNL ALT EMPORDA (10.129.197.194) ===
+2026-11-17 09:14:04 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-17 09:14:04 [INFO ] El port 'IP_10.129.197.194' ja existeix: s'omet.
+2026-11-17 09:14:04 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL ALT EMPORDA'...
+2026-11-17 09:14:07 [OK   ] Impressora 'SHARP BP-70C31 - CNL ALT EMPORDA' correcta.
+2026-11-17 09:14:07 [INFO ] Delegació triada: CNL GIRONA
+2026-11-17 09:14:07 [INFO ] === SHARP BP-70C31 - CNL GIRONA (10.161.221.151) ===
+2026-11-17 09:14:07 [INFO ] El port 'IP_10.161.221.151' ja existeix: s'omet.
+2026-11-17 09:14:07 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL GIRONA'...
+2026-11-17 09:14:09 [OK   ] Impressora 'SHARP BP-70C31 - CNL GIRONA' correcta.
+2026-11-17 09:14:09 [INFO ] ----- RESUM -----
+2026-11-17 09:14:09 [INFO ] Impressores processades: 2
+2026-11-17 09:14:09 [OK   ] Correctes: 2
+2026-11-17 09:14:09 [INFO ] Amb error: 0
+2026-11-17 09:14:09 [INFO ] Durada: 7 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261117_091325.log

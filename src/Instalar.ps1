@@ -1,7 +1,7 @@
 ﻿#Requires -Version 5.1
 <#
   Instalar.ps1: aplicació per a l'usuari final. Mostra una finestra per triar una o més delegacions
-  i instal·la totes les impressores SHARP de les delegacions triades, amb una finestra de progrés.
+  i instal·la totes les impressores SHARP, RICOH, HP, EPSON i LEXMARK de les delegacions triades, amb una finestra de progrés.
   Ús normal: la icona «Instal·la impressores SEU» (o el doble clic a INSTALAR_IMPRESSORES.bat).
   Demana permís d'administrador.
   Opcions per a proves i per a desplegaments:
@@ -19,6 +19,8 @@ param(
     [string]$Fitxer = (Join-Path $PSScriptRoot '..\dades\impressores.json'),
     # Controlador que s'usa per a les impressores que no indiquen el model
     [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+    # Controlador universal RICOH
+    [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46',
     # Si s'indica, no es canvia res: només es mostra què es faria
     [switch]$Simulacio,
     # Si s'indica, no es mostra cap finestra (només la consola) i cal indicar -Delegacio; per a desplegaments automàtics
@@ -79,7 +81,7 @@ if (-not $Simulacio -and -not (Test-Administrador)) {
         exit 1
     }
     # Munta els paràmetres per al nou PowerShell
-    $parametres = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -Fitxer "{1}" -ModelPerDefecte "{2}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte
+    $parametres = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -Fitxer "{1}" -ModelPerDefecte "{2}" -ModelRicoh "{3}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte, $ModelRicoh
     if ($Delegacio) {
         # Els noms es passen en un fitxer, perquè poden tenir apòstrofs, guions llargs o comes
         $parametres += ' -FitxerDelegacions "{0}"' -f (Export-NomsDelegacions -Noms $Delegacio)
@@ -97,8 +99,10 @@ if (-not $Simulacio -and -not (Test-Administrador)) {
 
 # Ruta completa de l'INF, calculada a partir de la carpeta d'aquest script
 $inf = Join-Path $PSScriptRoot '..\controladors\SHARP_Driver\PCL6\64bit\su3emesp.inf'
+$infRicoh = Join-Path $PSScriptRoot '..\controladors\RICOH\disk1\oemsetup.inf'
 # Converteix la ruta a absoluta si l'INF existeix
 if (Test-Path -LiteralPath $inf) { $inf = (Resolve-Path -LiteralPath $inf).Path }
+if (Test-Path -LiteralPath $infRicoh) { $infRicoh = (Resolve-Path -LiteralPath $infRicoh).Path }
 
 # Crea el registre (a la carpeta logs del projecte o, si no es pot escriure, a la carpeta temporal)
 $carpetaLogs = Get-CarpetaLogs -Preferida (Join-Path $PSScriptRoot '..\logs')
@@ -113,8 +117,9 @@ if (-not $modelDefecte) {
     Stop-AmbError
     return
 }
-# Avisa si l'INF no existeix (en una instal·lació real fallaria)
+# Avisa si els INF no existeixen (en una instal·lació real fallaria)
 if (-not (Test-Path -LiteralPath $inf)) { Write-Registre -Nivell AVIS -Text "No es troba l'INF: $inf" }
+if (-not (Test-Path -LiteralPath $infRicoh)) { Write-Registre -Nivell AVIS -Text "No es troba l'INF RICOH: $infRicoh" }
 
 # Llegeix el fitxer de delegacions
 try {
@@ -148,7 +153,7 @@ if ($Delegacio) {
     $triades = @($triades | Sort-Object { $_.nom } -Unique)
 }
 else {
-    $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte)
+    $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
 }
 if ($triades.Count -eq 0) {
     Write-Registre -Nivell AVIS -Text "No s'ha triat cap delegació: no es fa res."
@@ -162,17 +167,21 @@ if (-not $SenseFinestres) {
     $totalImpressores = 0
     foreach ($triada in $triades) {
         $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'SHARP' -ModelPerDefecte $modelDefecte).Count
+        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'RICOH' -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh).Count
+        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'HP' -ModelPerDefecte $modelDefecte).Count
+        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'EPSON' -ModelPerDefecte $modelDefecte).Count
+        $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $triada -Marca 'LEXMARK' -ModelPerDefecte $modelDefecte).Count
     }
     if ($totalImpressores -eq 0) {
-        Write-Registre -Nivell AVIS -Text 'Les delegacions triades no tenen impressores SHARP.'
+        Write-Registre -Nivell AVIS -Text 'Les delegacions triades no tenen impressores SHARP, RICOH, HP, EPSON ni LEXMARK.'
         Complete-Registre | Out-Null
-        Show-Missatge -Icona Warning -Text 'Les delegacions triades no tenen impressores SHARP al fitxer de dades.'
+        Show-Missatge -Icona Warning -Text 'Les delegacions triades no tenen impressores SHARP, RICOH, HP, EPSON ni LEXMARK al fitxer de dades.'
         return
     }
     # Desa els noms triats en un fitxer perquè el procés fill els llegeixi
     $fitxerNoms = Export-NomsDelegacions -Noms @($triades | ForEach-Object { $_.nom })
     # Paràmetres del procés fill: aquest mateix script, en mode sense finestres i escrivint al mateix registre
-    $parametresFill = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -SenseFinestres -Fitxer "{1}" -ModelPerDefecte "{2}" -FitxerDelegacions "{3}" -FitxerRegistre "{4}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte, $fitxerNoms, $script:FitxerLog
+    $parametresFill = '-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}" -SenseFinestres -Fitxer "{1}" -ModelPerDefecte "{2}" -ModelRicoh "{3}" -FitxerDelegacions "{4}" -FitxerRegistre "{5}"' -f $PSCommandPath, $fitxerComplet, $ModelPerDefecte, $ModelRicoh, $fitxerNoms, $script:FitxerLog
     if ($Simulacio) { $parametresFill += ' -Simulacio' }
     # El procés fill comença a llegir el registre just després del que ja s'ha escrit
     $posicioInicial = (Get-Item -LiteralPath $script:FitxerLog).Length
@@ -186,7 +195,7 @@ if (-not $SenseFinestres) {
 
 # MODE SENSE FINESTRES (procés fill o desplegament): instal·la les impressores de cada delegació triada
 foreach ($triada in $triades) {
-    Install-Delegacio -Delegacio $triada -ModelDefecte $modelDefecte -Inf $inf
+    Install-Delegacio -Delegacio $triada -ModelDefecte $modelDefecte -Inf $inf -ModelRicoh $ModelRicoh -InfRicoh $infRicoh
 }
 
 # Escriu el resum final i compta els resultats
@@ -202,7 +211,7 @@ if ($noms.Count -gt 8) { $llistaNoms += "`n... i $($noms.Count - 8) més" }
 
 # Mostra el resultat per consola (en mode sense finestres, Show-Missatge escriu a la consola)
 if ($total -eq 0) {
-    Show-Missatge -Icona Warning -Text "${prefix}Les delegacions triades no tenen impressores SHARP al fitxer de dades."
+    Show-Missatge -Icona Warning -Text "${prefix}Les delegacions triades no tenen impressores SHARP, RICOH, HP, EPSON ni LEXMARK al fitxer de dades."
 }
 elseif ($errors -eq 0) {
     Show-Missatge -Icona Information -Text "${prefix}Fet!`n`nImpressores instal·lades: $correctes`nDelegacions: $($triades.Count)`n$llistaNoms"

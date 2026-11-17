@@ -22,6 +22,12 @@ function Install-Controlador {
         # Ruta completa del fitxer INF
         [string]$Inf
     )
+    # HP, EPSON i LEXMARK utilitzen el controlador IPP integrat de Windows i no necessiten cap INF.
+    if ([string]::IsNullOrWhiteSpace($Inf)) {
+        Write-Registre -Nivell INFO -Text "S'usa el controlador integrat de Windows '$Model'."
+        $script:ControladorsTractats[$Model] = $true
+        return
+    }
     # Si ja l'hem tractat abans, no repetim la feina
     if ($script:ControladorsTractats.ContainsKey($Model)) {
         # Si la vegada anterior va fallar, tornem a donar l'error sense reintentar

@@ -464,7 +464,7 @@
         },
         {
           "marca": "LEXMARK",
-          "model": "Lexmark XM1242",
+          "model": "XM1242",
           "ip": "10.129.223.98",
           "ubicacio": ""
         }
@@ -813,7 +813,7 @@
         },
         {
           "marca": "LEXMARK",
-          "model": "Lexmark MX",
+          "model": "MX",
           "ip": "10.129.203.131",
           "ubicacio": "Planta 1"
         }

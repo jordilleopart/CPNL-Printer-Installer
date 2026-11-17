@@ -28,7 +28,7 @@ function Get-CarpetaLogs {
     }
 }
 
-# Instal·la totes les impressores SHARP d'una delegació (cada resultat queda al registre)
+# Instal·la totes les impressores compatibles d'una delegació (cada resultat queda al registre)
 function Install-Delegacio {
     param(
         # Delegació triada (un element de la llista llegida del JSON)
@@ -36,7 +36,11 @@ function Install-Delegacio {
         # Controlador que s'usa per a les impressores que no indiquen el model
         [string]$ModelDefecte,
         # Ruta completa del fitxer INF del controlador
-        [string]$Inf
+        [string]$Inf,
+        # Nom del controlador universal RICOH
+        [string]$ModelRicoh,
+        # Ruta completa de l'INF RICOH
+        [string]$InfRicoh
     )
     Write-Registre -Nivell INFO -Text "Delegació triada: $($Delegacio.nom)"
 
@@ -45,24 +49,35 @@ function Install-Delegacio {
         Write-Registre -Nivell AVIS -Text "Dades: $problema"
     }
 
-    # Obté les impressores SHARP d'aquesta delegació, ja amb el nom final
-    $impressores = @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca 'SHARP' -ModelPerDefecte $ModelDefecte)
-    if ($impressores.Count -eq 0) {
-        Write-Registre -Nivell AVIS -Text 'Aquesta delegació no té impressores SHARP.'
-    }
+    $configuracions = @(
+        [pscustomobject]@{ Marca = 'SHARP'; Model = $ModelDefecte; Inf = $Inf },
+        [pscustomobject]@{ Marca = 'RICOH'; Model = $ModelRicoh; Inf = $InfRicoh },
+        [pscustomobject]@{ Marca = 'HP'; Model = $script:ModelSensePaquet; Inf = '' },
+        [pscustomobject]@{ Marca = 'EPSON'; Model = $script:ModelSensePaquet; Inf = '' },
+        [pscustomobject]@{ Marca = 'LEXMARK'; Model = $script:ModelSensePaquet; Inf = '' }
+    )
+    $totalImpressores = 0
+    foreach ($configuracio in $configuracions) {
+        # Obté les impressores de la marca, ja amb el nom final i el controlador resolt
+        $impressores = @(Get-ImpressoresDelegacio -Delegacio $Delegacio -Marca $configuracio.Marca -ModelPerDefecte $ModelDefecte -ModelRicoh $configuracio.Model)
+        $totalImpressores += $impressores.Count
 
-    # Instal·la cada impressora; si una falla, les altres continuen
-    foreach ($i in $impressores) {
-        if ($i.Error) {
-            # Model no reconegut: no s'intenta instal·lar i es compta com a error
-            Write-Registre -Nivell ERROR -Text "Impressora '$($i.Nom)': $($i.Error)"
-            Add-Resultat -Nom $i.Nom -Estat ERROR -Detall $i.Error
-            continue
+        # Instal·la cada impressora; si una falla, les altres continuen
+        foreach ($i in $impressores) {
+            if ($i.Error) {
+                # Model no reconegut: no s'intenta instal·lar i es compta com a error
+                Write-Registre -Nivell ERROR -Text "Impressora '$($i.Nom)': $($i.Error)"
+                Add-Resultat -Nom $i.Nom -Estat ERROR -Detall $i.Error
+                continue
+            }
+            # Si el model no venia al JSON, ho deixa escrit al registre
+            if ($i.ModelOrigen -eq 'per defecte') {
+                Write-Registre -Nivell INFO -Text "'$($i.Nom)': no indica model, s'usa el per defecte ($($i.Model))."
+            }
+            Invoke-Impressora -Nom $i.Nom -IP $i.IP -Model $i.Model -Inf $configuracio.Inf
         }
-        # Si el model no venia al JSON, ho deixa escrit al registre
-        if ($i.ModelOrigen -eq 'per defecte') {
-            Write-Registre -Nivell INFO -Text "'$($i.Nom)': no indica model, s'usa el per defecte ($($i.Model))."
-        }
-        Invoke-Impressora -Nom $i.Nom -IP $i.IP -Model $i.Model -Inf $Inf
+    }
+    if ($totalImpressores -eq 0) {
+        Write-Registre -Nivell AVIS -Text 'Aquesta delegació no té impressores SHARP, RICOH, HP, EPSON ni LEXMARK.'
     }
 }

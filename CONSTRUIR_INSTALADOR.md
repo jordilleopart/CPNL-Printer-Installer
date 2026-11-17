@@ -16,7 +16,7 @@ L'usuari només fa clic a la icona: s'obre la finestra per triar la delegació, 
 ## Passos
 
 1. Instal·leu **Inno Setup 6.3 o superior** (gratuït, `jrsoftware.org`) a l'ordinador on construireu l'instal·lador.
-2. Copieu la carpeta `SHARP_Driver` dins de `controladors\` (l'INF ha de quedar a `controladors\SHARP_Driver\PCL6\64bit\su3emesp.inf`) i comproveu `dades\impressores.json`.
+2. Copieu les carpetes `SHARP_Driver` i `RICOH` dins de `controladors\` (els INF han de quedar a `controladors\SHARP_Driver\PCL6\64bit\su3emesp.inf` i `controladors\RICOH\disk1\oemsetup.inf`) i comproveu `dades\impressores.json`. HP, EPSON i LEXMARK utilitzen el controlador integrat de Windows i no necessiten cap paquet addicional.
 3. Obriu `Instalador\ImpressoresSEU.iss` amb Inno Setup Compiler i premeu **Build > Compile** (F9). També es pot fer per línia d'ordres:
    ```powershell
    & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" .\Instalador\ImpressoresSEU.iss

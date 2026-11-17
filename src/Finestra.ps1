@@ -41,6 +41,20 @@ function Set-IconaFinestra {
     }
 }
 
+function Set-EstilBoto {
+    param(
+        [System.Windows.Forms.Button]$Boto,
+        [System.Drawing.Color]$Fons,
+        [System.Drawing.Color]$Text = [System.Drawing.Color]::White
+    )
+    $Boto.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
+    $Boto.FlatAppearance.BorderSize = 0
+    $Boto.BackColor = $Fons
+    $Boto.ForeColor = $Text
+    $Boto.UseVisualStyleBackColor = $false
+    $Boto.Cursor = [System.Windows.Forms.Cursors]::Hand
+}
+
 # Retorna el nom de la delegació sense el prefix repetit "CONSORCI PER NORMALITZACIO LINGUISTICA -"
 function Get-NomCurt {
     param([string]$Nom)
@@ -57,7 +71,9 @@ function Show-SelectorDelegacions {
         # Llista de totes les delegacions
         [object[]]$Delegacions,
         # Controlador per defecte (per comptar les impressores que s'instal·laran)
-        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6'
+        [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
+        # Controlador universal RICOH (per comptar les impressores que s'instal·laran)
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
     )
     # Només es mostren les delegacions que tenen nom
     $Delegacions = @($Delegacions | Where-Object { -not [string]::IsNullOrWhiteSpace($_.nom) })
@@ -73,62 +89,100 @@ function Show-SelectorDelegacions {
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Instal·lació d'impressores"
     $form.StartPosition = 'CenterScreen'
-    $form.ClientSize = New-Object System.Drawing.Size(620, 540)
-    $form.FormBorderStyle = 'FixedDialog'
+    $form.ClientSize = New-Object System.Drawing.Size(700, 600)
+    $form.MinimumSize = New-Object System.Drawing.Size(640, 650)
+    $form.FormBorderStyle = 'Sizable'
     $form.MaximizeBox = $false
-    $form.MinimizeBox = $false
     $form.TopMost = $true
     $form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
+    $form.BackColor = [System.Drawing.Color]::FromArgb(245, 247, 250)
     Set-IconaFinestra -Finestra $form
+
+    # Capçalera
+    $capcalera = New-Object System.Windows.Forms.Label
+    $capcalera.Text = "Instal·la les impressores"
+    $capcalera.Font = New-Object System.Drawing.Font('Segoe UI', 16, [System.Drawing.FontStyle]::Bold)
+    $capcalera.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $capcalera.Location = New-Object System.Drawing.Point(24, 18)
+    $capcalera.Size = New-Object System.Drawing.Size(640, 34)
+    $capcalera.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+
+    $subtitol = New-Object System.Windows.Forms.Label
+    $subtitol.Text = 'Tria una o més delegacions per començar.'
+    $subtitol.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
+    $subtitol.Location = New-Object System.Drawing.Point(26, 53)
+    $subtitol.Size = New-Object System.Drawing.Size(640, 24)
+    $subtitol.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
     # Text de la primera instrucció
     $etiqueta1 = New-Object System.Windows.Forms.Label
-    $etiqueta1.Text = '1. Escriu part del nom de la teva delegació:'
-    $etiqueta1.Location = New-Object System.Drawing.Point(15, 15)
-    $etiqueta1.Size = New-Object System.Drawing.Size(590, 25)
+    $etiqueta1.Text = 'Cerca una delegació'
+    $etiqueta1.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
+    $etiqueta1.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $etiqueta1.Location = New-Object System.Drawing.Point(24, 91)
+    $etiqueta1.Size = New-Object System.Drawing.Size(640, 24)
+    $etiqueta1.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
     # Quadre de text per filtrar la llista
     $quadreText = New-Object System.Windows.Forms.TextBox
-    $quadreText.Location = New-Object System.Drawing.Point(15, 45)
-    $quadreText.Size = New-Object System.Drawing.Size(590, 28)
+    $quadreText.Location = New-Object System.Drawing.Point(24, 117)
+    $quadreText.Size = New-Object System.Drawing.Size(640, 28)
+    $quadreText.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $quadreText.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 
     # Text de la segona instrucció
     $etiqueta2 = New-Object System.Windows.Forms.Label
-    $etiqueta2.Text = '2. Marca amb el quadradet les delegacions que vulguis:'
-    $etiqueta2.Location = New-Object System.Drawing.Point(15, 85)
-    $etiqueta2.Size = New-Object System.Drawing.Size(590, 25)
+    $etiqueta2.Text = 'Selecciona les delegacions'
+    $etiqueta2.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
+    $etiqueta2.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $etiqueta2.Location = New-Object System.Drawing.Point(24, 158)
+    $etiqueta2.Size = New-Object System.Drawing.Size(640, 24)
+    $etiqueta2.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
     # Llista de delegacions amb un quadradet per marcar-ne més d'una
     $llista = New-Object System.Windows.Forms.CheckedListBox
     $llista.CheckOnClick = $true
-    $llista.Location = New-Object System.Drawing.Point(15, 115)
-    $llista.Size = New-Object System.Drawing.Size(590, 250)
+    $llista.Location = New-Object System.Drawing.Point(24, 184)
+    $llista.Size = New-Object System.Drawing.Size(640, 275)
+    $llista.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $llista.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
 
     # Text informatiu sobre les delegacions marcades
     $info = New-Object System.Windows.Forms.Label
-    $info.Location = New-Object System.Drawing.Point(15, 372)
-    $info.Size = New-Object System.Drawing.Size(590, 95)
+    $info.Location = New-Object System.Drawing.Point(24, 469)
+    $info.Size = New-Object System.Drawing.Size(640, 62)
+    $info.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $info.Padding = New-Object System.Windows.Forms.Padding(12, 8, 12, 8)
+    $info.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+    $info.BackColor = [System.Drawing.Color]::White
+    $info.ForeColor = [System.Drawing.Color]::FromArgb(55, 65, 81)
 
     # Botó per continuar (no es pot prémer fins que hi ha delegacions marcades amb impressores)
     $boto = New-Object System.Windows.Forms.Button
     $boto.Text = 'Instal·la les impressores'
-    $boto.Location = New-Object System.Drawing.Point(350, 480)
-    $boto.Size = New-Object System.Drawing.Size(255, 40)
+    $boto.Location = New-Object System.Drawing.Point(453, 545)
+    $boto.Size = New-Object System.Drawing.Size(211, 38)
+    $boto.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right
     $boto.Enabled = $false
     $boto.DialogResult = [System.Windows.Forms.DialogResult]::OK
+    Set-EstilBoto -Boto $boto -Fons ([System.Drawing.Color]::FromArgb(185, 28, 28))
 
     # Botó per treure totes les marques
     $netejar = New-Object System.Windows.Forms.Button
     $netejar.Text = 'Desmarca-ho tot'
-    $netejar.Location = New-Object System.Drawing.Point(145, 480)
-    $netejar.Size = New-Object System.Drawing.Size(190, 40)
+    $netejar.Location = New-Object System.Drawing.Point(144, 545)
+    $netejar.Size = New-Object System.Drawing.Size(145, 38)
+    $netejar.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left
+    Set-EstilBoto -Boto $netejar -Fons ([System.Drawing.Color]::FromArgb(107, 114, 128))
 
     # Botó per cancel·lar
     $cancela = New-Object System.Windows.Forms.Button
     $cancela.Text = 'Cancel·la'
-    $cancela.Location = New-Object System.Drawing.Point(15, 480)
-    $cancela.Size = New-Object System.Drawing.Size(120, 40)
+    $cancela.Location = New-Object System.Drawing.Point(24, 545)
+    $cancela.Size = New-Object System.Drawing.Size(105, 38)
+    $cancela.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left
     $cancela.DialogResult = [System.Windows.Forms.DialogResult]::Cancel
+    Set-EstilBoto -Boto $cancela -Fons ([System.Drawing.Color]::FromArgb(229, 231, 235)) -Text ([System.Drawing.Color]::FromArgb(31, 41, 55))
 
     # Esc cancel·la (Intro no instal·la, per evitar instal·lacions per error)
     $form.CancelButton = $cancela
@@ -140,6 +194,10 @@ function Show-SelectorDelegacions {
         $totalImpressores = 0
         foreach ($d in $triades) {
             $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP' -ModelPerDefecte $ModelPerDefecte).Count
+            $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'RICOH' -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh).Count
+            $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'HP' -ModelPerDefecte $ModelPerDefecte).Count
+            $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'EPSON' -ModelPerDefecte $ModelPerDefecte).Count
+            $totalImpressores += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'LEXMARK' -ModelPerDefecte $ModelPerDefecte).Count
         }
         if ($triades.Count -eq 0) {
             $info.Text = 'Marca una o més delegacions per continuar.'
@@ -168,9 +226,14 @@ function Show-SelectorDelegacions {
         $llista.Items.Clear()
         foreach ($d in $estat.Visibles) {
             $etiquetaItem = Get-NomCurt $d.nom
-            # Avisa si la delegació no té impressores SHARP (no es podrà marcar)
-            if (@(Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP' -ModelPerDefecte $ModelPerDefecte).Count -eq 0) {
-                $etiquetaItem += ' (cap impressora SHARP)'
+            # Avisa si la delegació no té impressores compatibles (no es podrà marcar)
+            $nombreSharp = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombreRicoh = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'RICOH' -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh).Count
+            $nombreHp = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'HP' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombreEpson = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'EPSON' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombreLexmark = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'LEXMARK' -ModelPerDefecte $ModelPerDefecte).Count
+            if (($nombreSharp + $nombreRicoh + $nombreHp + $nombreEpson + $nombreLexmark) -eq 0) {
+                $etiquetaItem += ' (cap impressora SHARP/RICOH/HP/EPSON/LEXMARK)'
             }
             # Afegeix la delegació, marcada si ja s'havia triat abans
             [void]$llista.Items.Add($etiquetaItem, $estat.Triades.Contains($d.nom))
@@ -187,8 +250,12 @@ function Show-SelectorDelegacions {
         if ($estat.Omplint) { return }
         $d = $estat.Visibles[$e.Index]
         if ($e.NewValue -eq [System.Windows.Forms.CheckState]::Checked) {
-            # Si no té impressores SHARP, no es deixa marcar
+            # Si no té impressores compatibles, no es deixa marcar
             $nombre = @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'SHARP' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombre += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'RICOH' -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh).Count
+            $nombre += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'HP' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombre += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'EPSON' -ModelPerDefecte $ModelPerDefecte).Count
+            $nombre += @(Get-ImpressoresDelegacio -Delegacio $d -Marca 'LEXMARK' -ModelPerDefecte $ModelPerDefecte).Count
             if ($nombre -eq 0) {
                 $e.NewValue = [System.Windows.Forms.CheckState]::Unchecked
                 return
@@ -207,7 +274,7 @@ function Show-SelectorDelegacions {
     $form.Add_Shown({ $quadreText.Focus() })
 
     # Afegeix els controls a la finestra i omple la llista per primera vegada
-    $form.Controls.AddRange(@($etiqueta1, $quadreText, $etiqueta2, $llista, $info, $cancela, $netejar, $boto))
+    $form.Controls.AddRange(@($capcalera, $subtitol, $etiqueta1, $quadreText, $etiqueta2, $llista, $info, $cancela, $netejar, $boto))
     & $omple
 
     # Mostra la finestra i espera que l'usuari acabi
@@ -238,6 +305,7 @@ function Show-Progres {
         Posicio   = $PosicioInicial
         Text      = ''
         Iniciades = 0
+        Objectiu  = 0
         ExitVist  = $false
         Acabat    = $false
         Codi      = $null
@@ -249,58 +317,82 @@ function Show-Progres {
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "Instal·lació d'impressores"
     $form.StartPosition = 'CenterScreen'
-    $form.ClientSize = New-Object System.Drawing.Size(620, 440)
+    $form.ClientSize = New-Object System.Drawing.Size(700, 500)
     $form.FormBorderStyle = 'FixedDialog'
     $form.MaximizeBox = $false
     $form.Font = New-Object System.Drawing.Font('Segoe UI', 10)
+    $form.BackColor = [System.Drawing.Color]::FromArgb(245, 247, 250)
     Set-IconaFinestra -Finestra $form
 
     # Títol gran que canvia quan s'acaba
     $titol = New-Object System.Windows.Forms.Label
     $titol.Text = "Instal·lant les impressores..."
     $titol.Font = New-Object System.Drawing.Font('Segoe UI', 14, [System.Drawing.FontStyle]::Bold)
-    $titol.Location = New-Object System.Drawing.Point(15, 12)
-    $titol.Size = New-Object System.Drawing.Size(590, 32)
+    $titol.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $titol.Location = New-Object System.Drawing.Point(24, 20)
+    $titol.Size = New-Object System.Drawing.Size(650, 32)
+    $titol.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
     # Barra de progrés (una unitat per cada impressora que s'ha començat)
     $barra = New-Object System.Windows.Forms.ProgressBar
     $barra.Minimum = 0
     $barra.Maximum = [Math]::Max(1, $TotalImpressores)
-    $barra.Location = New-Object System.Drawing.Point(15, 52)
-    $barra.Size = New-Object System.Drawing.Size(590, 24)
+    $barra.Location = New-Object System.Drawing.Point(24, 68)
+    $barra.Size = New-Object System.Drawing.Size(650, 24)
+    $barra.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $barra.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+
+    $percentatge = New-Object System.Windows.Forms.Label
+    $percentatge.Text = "0 de $TotalImpressores"
+    $percentatge.TextAlign = [System.Drawing.ContentAlignment]::MiddleRight
+    $percentatge.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
+    $percentatge.Location = New-Object System.Drawing.Point(520, 96)
+    $percentatge.Size = New-Object System.Drawing.Size(154, 24)
+    $percentatge.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Right
 
     # Text d'estat sota la barra
     $textEstat = New-Object System.Windows.Forms.Label
     $textEstat.Text = "Això pot trigar uns minuts. No tanquis aquesta finestra."
-    $textEstat.Location = New-Object System.Drawing.Point(15, 84)
-    $textEstat.Size = New-Object System.Drawing.Size(590, 40)
+    $textEstat.Location = New-Object System.Drawing.Point(24, 98)
+    $textEstat.Size = New-Object System.Drawing.Size(480, 40)
+    $textEstat.ForeColor = [System.Drawing.Color]::FromArgb(75, 85, 99)
+    $textEstat.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left
 
-    # Quadre amb el detall del que va fent el programa
-    $caixa = New-Object System.Windows.Forms.TextBox
-    $caixa.Multiline = $true
-    $caixa.ReadOnly = $true
-    $caixa.ScrollBars = 'Vertical'
-    $caixa.Font = New-Object System.Drawing.Font('Consolas', 8.5)
-    $caixa.Location = New-Object System.Drawing.Point(15, 128)
-    $caixa.Size = New-Object System.Drawing.Size(590, 250)
+    # Estat resumit, sense mostrar el registre tècnic
+    $activitat = New-Object System.Windows.Forms.Label
+    $activitat.Text = 'Preparant la instal·lació...'
+    $activitat.Font = New-Object System.Drawing.Font('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)
+    $activitat.ForeColor = [System.Drawing.Color]::FromArgb(31, 41, 55)
+    $activitat.Location = New-Object System.Drawing.Point(24, 145)
+    $activitat.Size = New-Object System.Drawing.Size(650, 42)
+    $activitat.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
 
-    # Botó per obrir el registre al Bloc de notes
-    $botoRegistre = New-Object System.Windows.Forms.Button
-    $botoRegistre.Text = 'Mostra el registre'
-    $botoRegistre.Location = New-Object System.Drawing.Point(15, 390)
-    $botoRegistre.Size = New-Object System.Drawing.Size(190, 40)
+    $resum = New-Object System.Windows.Forms.Label
+    $resum.Text = 'La instal·lació començarà en uns instants.'
+    $resum.Location = New-Object System.Drawing.Point(24, 195)
+    $resum.Size = New-Object System.Drawing.Size(650, 210)
+    $resum.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Right
+    $resum.Padding = New-Object System.Windows.Forms.Padding(16)
+    $resum.BorderStyle = [System.Windows.Forms.BorderStyle]::FixedSingle
+    $resum.BackColor = [System.Drawing.Color]::White
+    $resum.ForeColor = [System.Drawing.Color]::FromArgb(55, 65, 81)
 
     # Botó per tancar (només es pot prémer quan s'ha acabat)
     $botoTanca = New-Object System.Windows.Forms.Button
     $botoTanca.Text = 'Tanca'
-    $botoTanca.Location = New-Object System.Drawing.Point(415, 390)
-    $botoTanca.Size = New-Object System.Drawing.Size(190, 40)
+    $botoTanca.Location = New-Object System.Drawing.Point(504, 445)
+    $botoTanca.Size = New-Object System.Drawing.Size(170, 38)
+    $botoTanca.Anchor = [System.Windows.Forms.AnchorStyles]::Bottom -bor [System.Windows.Forms.AnchorStyles]::Right
     $botoTanca.Enabled = $false
     $botoTanca.DialogResult = [System.Windows.Forms.DialogResult]::OK
+    Set-EstilBoto -Boto $botoTanca -Fons ([System.Drawing.Color]::FromArgb(185, 28, 28))
 
     # Temporitzador que llegeix el registre cada mig segon
     $temporitzador = New-Object System.Windows.Forms.Timer
     $temporitzador.Interval = 500
+    # Temporitzador independent per animar suaument la barra entre impressores
+    $animacio = New-Object System.Windows.Forms.Timer
+    $animacio.Interval = 30
 
     # Quan el procés ha acabat: calcula el resultat i el mostra
     $finalitza = {
@@ -313,22 +405,30 @@ function Show-Progres {
         $m = [regex]::Match($estat.Text, 'Amb error: (\d+)')
         if ($m.Success) { $estat.Errors = [int]$m.Groups[1].Value }
         $total = $estat.Correctes + $estat.Errors
+        $estat.Objectiu = $barra.Maximum
         $barra.Value = $barra.Maximum
+        $percentatge.Text = "$total de $TotalImpressores"
         $sufix = if ($Simulacio) { " (SIMULACIÓ: no s'ha canviat res)" } else { '' }
         if ($total -gt 0 -and $estat.Errors -eq 0 -and $estat.Codi -eq 0) {
             $titol.Text = 'Fet!'
             $titol.ForeColor = [System.Drawing.Color]::ForestGreen
+            $activitat.Text = 'Instal·lació completada'
+            $resum.Text = "S'han processat correctament $($estat.Correctes) impressores.$sufix"
             $textEstat.Text = "Impressores instal·lades: $($estat.Correctes). Ja les tens a la llista d'impressores del Windows.$sufix"
         }
         elseif ($total -gt 0) {
             $titol.Text = 'Hi ha hagut errors'
             $titol.ForeColor = [System.Drawing.Color]::DarkOrange
-            $textEstat.Text = "Impressores instal·lades: $($estat.Correctes) de $total. Prem «Mostra el registre» i envia'l al servei informàtic.$sufix"
+            $activitat.Text = 'Instal·lació finalitzada amb incidències'
+            $resum.Text = "S'han instal·lat $($estat.Correctes) impressores i n'han fallat $($estat.Errors). Consulta el registre si el servei informàtic necessita més detalls.$sufix"
+            $textEstat.Text = "Impressores instal·lades: $($estat.Correctes) de $total. El registre tècnic s'ha desat per si el servei informàtic necessita més detalls.$sufix"
         }
         else {
             $titol.Text = "No s'ha pogut instal·lar"
             $titol.ForeColor = [System.Drawing.Color]::Firebrick
-            $textEstat.Text = "El procés ha acabat sense resultat (codi $($estat.Codi)). Prem «Mostra el registre» i envia'l al servei informàtic."
+            $activitat.Text = 'La instal·lació no ha produït cap resultat'
+            $resum.Text = "El procés ha acabat sense impressores instal·lades (codi $($estat.Codi)). Consulta el registre si necessites ajuda."
+            $textEstat.Text = "El procés ha acabat sense resultat (codi $($estat.Codi)). El registre tècnic s'ha desat per consultar-lo si cal."
         }
         $botoTanca.Enabled = $true
     }
@@ -350,10 +450,13 @@ function Show-Progres {
         catch { $nou = '' }
         if ($nou) {
             $estat.Text += $nou
-            $caixa.AppendText($nou)
+            $mActual = [regex]::Matches($nou, '=== (.+?) \([^)]+\) ===')
+            if ($mActual.Count -gt 0) {
+                $activitat.Text = "Instal·lant: $($mActual[$mActual.Count - 1].Groups[1].Value)"
+            }
             # Cada impressora comença amb una línia "=== nom (ip) ===": s'usa per avançar la barra
             $estat.Iniciades += ([regex]::Matches($nou, '\] === ')).Count
-            $barra.Value = [Math]::Min($estat.Iniciades, $barra.Maximum)
+            $estat.Objectiu = [Math]::Min($estat.Iniciades, $barra.Maximum)
         }
         # Quan el procés ha acabat, es fa una última lectura (al tic següent) abans de mostrar el resultat
         if ($Proces.HasExited) {
@@ -361,8 +464,13 @@ function Show-Progres {
         }
     })
 
-    # El botó del registre l'obre al Bloc de notes
-    $botoRegistre.Add_Click({ Start-Process -FilePath 'notepad.exe' -ArgumentList ('"{0}"' -f $FitxerRegistre) })
+    # Anima la barra de progrés sense mostrar el registre tècnic
+    $animacio.Add_Tick({
+        if ($barra.Value -lt $estat.Objectiu) {
+            $barra.Value = [Math]::Min($barra.Value + 1, $estat.Objectiu)
+            $percentatge.Text = "$($barra.Value) de $TotalImpressores"
+        }
+    })
 
     # Si es tanca la finestra abans d'acabar, es demana confirmació (la instal·lació continuaria en segon pla)
     $form.Add_FormClosing({
@@ -378,10 +486,12 @@ function Show-Progres {
     })
 
     # Afegeix els controls, arrenca el temporitzador i mostra la finestra
-    $form.Controls.AddRange(@($titol, $barra, $textEstat, $caixa, $botoRegistre, $botoTanca))
+    $form.Controls.AddRange(@($titol, $barra, $percentatge, $textEstat, $activitat, $resum, $botoTanca))
     $temporitzador.Start()
+    $animacio.Start()
     [void]$form.ShowDialog()
     $temporitzador.Dispose()
+    $animacio.Dispose()
     $form.Dispose()
     return [pscustomobject]@{ Codi = $estat.Codi; Correctes = $estat.Correctes; Errors = $estat.Errors }
 }
