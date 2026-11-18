@@ -1722,6 +1722,19 @@
       ]
     },
     {
+      "codi": "SEU.018582",
+      "nom": "CNL DE BERGUEDA",
+      "poblacio": "Berga",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "",
+          "ip": "10.129.196.226",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
       "codi": "",
       "nom": "CNL PALAMOS",
       "poblacio": "Palamós",
