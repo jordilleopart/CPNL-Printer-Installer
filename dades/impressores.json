@@ -1317,6 +1317,7 @@
         {
           "marca": "RICOH",
           "model": "",
+          "ip": "10.129.192.90",
           "ubicacio": ""
         }
       ]
@@ -1355,6 +1356,7 @@
         {
           "marca": "RICOH",
           "model": "P-C375",
+          "ip": "10.129.193.170",
           "ubicacio": ""
         }
       ]
@@ -1379,6 +1381,7 @@
         {
           "marca": "RICOH",
           "model": "P-C375",
+          "ip": "10.129.193.194",
           "ubicacio": ""
         }
       ]
@@ -1391,6 +1394,7 @@
         {
           "marca": "RICOH",
           "model": "P-C375",
+          "ip": "10.129.193.114",
           "ubicacio": ""
         }
       ]
@@ -1403,6 +1407,7 @@
         {
           "marca": "RICOH",
           "model": "P-C375",
+          "ip": "10.129.193.250",
           "ubicacio": ""
         }
       ]
@@ -1415,6 +1420,7 @@
         {
           "marca": "RICOH",
           "model": "P-C375",
+          "ip": "10.129.194.2",
           "ubicacio": ""
         }
       ]
@@ -1439,7 +1445,7 @@
       "impressores": [
         {
           "marca": "RICOH",
-          "model": "P-C375",
+          "model": "P-IM 370",
           "ip": "10.129.193.131",
           "ubicacio": ""
         }
@@ -1504,7 +1510,8 @@
       "impressores": [
         {
           "marca": "RICOH",
-          "model": "C311",
+          "model": "C320F",
+          "ip": "10.129.192.26",
           "ubicacio": ""
         }
       ]
@@ -1671,6 +1678,7 @@
         {
           "marca": "RICOH",
           "model": "IM 370",
+          "ip": "10.129.192.234",
           "ubicacio": ""
         }
       ]

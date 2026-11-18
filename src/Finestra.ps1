@@ -1046,6 +1046,8 @@ button { border: 0; border-radius: 6px; height: 38px; padding: 0 18px; font: 700
 .row { min-height: 48px; display: flex; align-items: center; padding: 8px 14px; border-bottom: 1px solid #f0f1f3; }
 .row:last-child { border-bottom: 0; }
 .row label { display: flex; align-items: center; width: 100%; cursor: pointer; }
+.row.disabled { opacity: .58; background: #fafafa; }
+.row.disabled label { cursor: not-allowed; }
 input[type=checkbox] { width: 17px; height: 17px; margin: 0 13px 0 0; accent-color: #b91c1c; }
 .office-name { font-size: 14px; font-weight: 600; }
 .muted { margin-left: 8px; color: #9199a5; font-size: 13px; }
@@ -1092,8 +1094,9 @@ function Show-SelectorDelegacionsHtml {
     $printerData = @()
     for ($i = 0; $i -lt $Delegacions.Count; $i++) {
         $d = $Delegacions[$i]
-        $printers = @(Get-ImpressoresCompatibles -Delegacio $d -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)
-        $officeData += [pscustomobject]@{ index = $i; name = Get-NomCurt $d.nom; count = $printers.Count }
+        $printers = @(Get-ImpressoresCompatibles -Delegacio $d -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh | Where-Object { Test-AdrecaIP ([string]$_.IP) })
+        $disabled = ($printers.Count -eq 0)
+        $officeData += [pscustomobject]@{ index = $i; name = Get-NomCurt $d.nom; count = $printers.Count; disabled = $disabled }
         foreach ($p in $printers) {
             $printerData += [pscustomobject]@{ index = $printerData.Count; office = $i; name = $p.Nom; ip = $p.IP }
         }
@@ -1128,13 +1131,21 @@ function clearError() { el("office-error").innerText = ""; el("printer-error").i
 function officeMatches(o, q) { return !q || o.name.toLowerCase().indexOf(q) >= 0; }
 function renderOffices() {
   var q = el("office-search").value.toLowerCase(), html = "";
-  var allSelected = offices.length > 0;
+  var selectable = 0, allSelected = true;
   for (var k = 0; k < offices.length; k++) {
-    if (!selectedOffices[offices[k].index]) allSelected = false;
+    if (!offices[k].disabled) {
+      selectable++;
+      if (!selectedOffices[offices[k].index]) allSelected = false;
+    }
   }
+  if (selectable === 0) allSelected = false;
   for (var i = 0; i < offices.length; i++) {
     var o = offices[i]; if (!officeMatches(o, q)) continue;
-    html += '<div class="row"><label><input type="checkbox" data-office="' + o.index + '"' + (selectedOffices[o.index] ? " checked" : "") + '><span class="office-name">' + o.name + '</span><span class="muted">(' + o.count + ' impressores)</span></label></div>';
+    if (o.disabled) {
+      html += '<div class="row disabled"><label><input type="checkbox" disabled><span class="office-name">' + o.name + '</span><span class="muted">(sense IP configurada — contacta amb Informàtica)</span></label></div>';
+    } else {
+      html += '<div class="row"><label><input type="checkbox" data-office="' + o.index + '"' + (selectedOffices[o.index] ? " checked" : "") + '><span class="office-name">' + o.name + '</span><span class="muted">(' + o.count + ' impressores)</span></label></div>';
+    }
   }
   el("office-list").innerHTML = html || '<div class="row"><span class="muted">No s’han trobat oficines.</span></div>';
   var boxes = el("office-list").getElementsByTagName("input");
@@ -1144,6 +1155,8 @@ function renderOffices() {
   el("office-all").innerText = allSelected ? "Desselecciona-ho tot" : "Selecciona-ho tot";
 }
 function officeChanged() {
+  var officeIndex = parseInt(this.getAttribute("data-office"), 10);
+  if (offices[officeIndex].disabled) { this.checked = false; return; }
   selectedOffices[this.getAttribute("data-office")] = this.checked;
   if (!this.checked) delete selectedOffices[this.getAttribute("data-office")];
   renderOffices();
@@ -1171,10 +1184,12 @@ function indexes(o) { var a = []; for (var k in o) if (o.hasOwnProperty(k)) a.pu
 el("office-search").onkeyup = renderOffices;
 el("printer-search").onkeyup = renderPrinters;
 el("office-all").onclick = function() {
-  var allSelected = countKeys(selectedOffices) === offices.length;
+  var selectableCount = 0;
+  for (var i = 0; i < offices.length; i++) if (!offices[i].disabled) selectableCount++;
+  var allSelected = countKeys(selectedOffices) === selectableCount;
   selectedOffices = {};
   if (!allSelected) {
-    for (var i = 0; i < offices.length; i++) selectedOffices[offices[i].index] = true;
+    for (var i = 0; i < offices.length; i++) if (!offices[i].disabled) selectedOffices[offices[i].index] = true;
   }
   renderOffices();
 };
@@ -1235,7 +1250,7 @@ function Show-InstallacioHtml {
     )
     $files = @()
     foreach ($d in $Delegacions) {
-        foreach ($p in @(Get-ImpressoresCompatiblesSeleccionades -Delegacio $d -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh)) {
+        foreach ($p in @(Get-ImpressoresCompatiblesSeleccionades -Delegacio $d -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh | Where-Object { Test-AdrecaIP ([string]$_.IP) })) {
             $files += [pscustomobject]@{ Index = $files.Count; Delegacio = $d.nom; Oficina = Get-NomCurt $d.nom; Nom = $p.Nom; IP = $p.IP; Estat = 'pendent' }
         }
     }
