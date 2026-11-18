@@ -1,0 +1,19 @@
+﻿2026-11-18 12:06:19 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-18 12:06:19 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-18 12:06:19 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-18 12:06:49 [INFO ] Delegacions triades: 1.
+2026-11-18 12:06:50 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-18 12:06:50 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-18 12:06:50 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-18 12:06:50 [INFO ] Delegacions triades: 1.
+2026-11-18 12:06:50 [INFO ] Delegació triada: CNL TORDERA
+2026-11-18 12:06:50 [INFO ] === RICOH P-C375 - CNL TORDERA (10.129.192.250) ===
+2026-11-18 12:06:51 [INFO ] Controlador 'RICOH PCL6 UniversalDriver V4.46' ja instal·lat: s'omet.
+2026-11-18 12:06:51 [INFO ] Creant el port 'IP_10.129.192.250'...
+2026-11-18 12:06:51 [INFO ] Creant la impressora 'RICOH P-C375 - CNL TORDERA'...
+2026-11-18 12:06:53 [OK   ] Impressora 'RICOH P-C375 - CNL TORDERA' correcta.
+2026-11-18 12:06:54 [INFO ] ----- RESUM -----
+2026-11-18 12:06:54 [INFO ] Impressores processades: 1
+2026-11-18 12:06:54 [OK   ] Correctes: 1
+2026-11-18 12:06:54 [INFO ] Amb error: 0
+2026-11-18 12:06:54 [INFO ] Durada: 4 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261118_120619.log

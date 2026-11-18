@@ -1058,7 +1058,7 @@ input[type=checkbox] { width: 17px; height: 17px; margin: 0 13px 0 0; accent-col
 .footer-right button { margin-left: 10px; }
 .hidden { display: none; }
 .error { height: 20px; margin-top: 7px; color: #b91c1c; font-size: 12px; }
-.install-list { height: 468px; }
+.install-list { height: 390px; }
 .install-group { margin-bottom: 14px; padding: 0 12px 8px; border-radius: 8px; background: white; }
 .install-office { padding: 15px 6px 9px; font-size: 14px; font-weight: 700; }
 .install-row { min-height: 40px; display: flex; align-items: center; border-top: 1px solid #f0f1f3; font-size: 13px; color: #374151; }
@@ -1128,6 +1128,10 @@ function clearError() { el("office-error").innerText = ""; el("printer-error").i
 function officeMatches(o, q) { return !q || o.name.toLowerCase().indexOf(q) >= 0; }
 function renderOffices() {
   var q = el("office-search").value.toLowerCase(), html = "";
+  var allSelected = offices.length > 0;
+  for (var k = 0; k < offices.length; k++) {
+    if (!selectedOffices[offices[k].index]) allSelected = false;
+  }
   for (var i = 0; i < offices.length; i++) {
     var o = offices[i]; if (!officeMatches(o, q)) continue;
     html += '<div class="row"><label><input type="checkbox" data-office="' + o.index + '"' + (selectedOffices[o.index] ? " checked" : "") + '><span class="office-name">' + o.name + '</span><span class="muted">(' + o.count + ' impressores)</span></label></div>';
@@ -1137,6 +1141,7 @@ function renderOffices() {
   for (var j = 0; j < boxes.length; j++) boxes[j].onclick = officeChanged;
   el("next").disabled = countKeys(selectedOffices) === 0;
   el("summary").innerText = countKeys(selectedOffices) + " oficines seleccionades";
+  el("office-all").innerText = allSelected ? "Desselecciona-ho tot" : "Selecciona-ho tot";
 }
 function officeChanged() {
   selectedOffices[this.getAttribute("data-office")] = this.checked;
@@ -1165,7 +1170,14 @@ function countKeys(o) { var n = 0; for (var k in o) if (o.hasOwnProperty(k)) n++
 function indexes(o) { var a = []; for (var k in o) if (o.hasOwnProperty(k)) a.push(k); return a.join(","); }
 el("office-search").onkeyup = renderOffices;
 el("printer-search").onkeyup = renderPrinters;
-el("office-all").onclick = function() { for (var i = 0; i < offices.length; i++) selectedOffices[offices[i].index] = true; renderOffices(); };
+el("office-all").onclick = function() {
+  var allSelected = countKeys(selectedOffices) === offices.length;
+  selectedOffices = {};
+  if (!allSelected) {
+    for (var i = 0; i < offices.length; i++) selectedOffices[offices[i].index] = true;
+  }
+  renderOffices();
+};
 el("printer-all").onclick = function() { for (var i = 0; i < printers.length; i++) if (selectedOffices[printers[i].office]) selectedPrinters[printers[i].index] = true; renderPrinters(); };
 el("back").onclick = function() {
   page = 1; el("office-page").className = ""; el("printer-page").className = "hidden"; el("back").className = "secondary hidden";
@@ -1264,7 +1276,9 @@ function setPrinterStatus(index, status) {
   else { icon.innerText = "·"; }
 }
 function setResult(title, message, success) {
-  document.getElementById("title").innerText = title; document.getElementById("hint").innerText = message; document.getElementById("close").disabled = false;
+  document.getElementById("title").innerText = title; document.getElementById("hint").innerText = message;
+  document.getElementById("close").innerText = "Fet";
+  document.getElementById("close").disabled = false;
   document.getElementById("summary").innerText = success ? "Instal·lació completada" : "Instal·lació finalitzada amb incidències";
 }
 document.getElementById("close").onclick = function() { window.location.href = "app://close"; };
@@ -1327,6 +1341,14 @@ render();
     $form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog; $form.MaximizeBox = $false
     Set-IconaFinestra -Finestra $form
     $browser = New-Object System.Windows.Forms.WebBrowser; $browser.Dock = [System.Windows.Forms.DockStyle]::Fill; $browser.ScriptErrorsSuppressed = $true
+    $browser.AllowNavigation = $true
+    $browser.Add_Navigating({
+        param($sender, $e)
+        if ($e.Url.Scheme -eq 'app') {
+            $e.Cancel = $true
+            if ($e.Url.Host -eq 'close') { $form.Close() }
+        }
+    })
     [void]$form.Controls.Add($browser); $browser.DocumentText = $html
     $form.Add_FormClosing({
         param($sender, $e)

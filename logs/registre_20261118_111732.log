@@ -1,0 +1,30 @@
+﻿2026-11-18 11:17:32 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-18 11:17:32 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-18 11:17:32 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\dades\impressores.json (112 delegacions).
+2026-11-18 11:18:46 [INFO ] Delegacions triades: 2.
+2026-11-18 11:18:47 [INFO ] Inici de l'execució. Ordinador: NI16836. Usuari: jlleopart.
+2026-11-18 11:18:48 [INFO ] Versió de PowerShell: 5.1.26100.9711.
+2026-11-18 11:18:48 [INFO ] Fitxer llegit: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\dades\impressores.json (112 delegacions).
+2026-11-18 11:18:48 [INFO ] Delegacions triades: 2.
+2026-11-18 11:18:48 [INFO ] Delegació triada: CNL CAN NOE (MATARO)
+2026-11-18 11:18:48 [INFO ] === SHARP BP-70C31 - CNL CAN NOE (MATARO) (10.129.223.99) ===
+2026-11-18 11:18:49 [INFO ] Controlador 'SHARP BP-70C31 PCL6' ja instal·lat: s'omet.
+2026-11-18 11:18:50 [INFO ] El port 'IP_10.129.223.99' ja existeix: s'omet.
+2026-11-18 11:18:50 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL CAN NOE (MATARO)'...
+2026-11-18 11:18:52 [OK   ] Impressora 'SHARP BP-70C31 - CNL CAN NOE (MATARO)' correcta.
+2026-11-18 11:18:52 [INFO ] === LEXMARK XM1242 - CNL CAN NOE (MATARO) (10.129.223.98) ===
+2026-11-18 11:18:52 [INFO ] S'usa el controlador integrat de Windows 'Microsoft IPP Class Driver'.
+2026-11-18 11:18:52 [INFO ] La impressora 'LEXMARK XM1242 - CNL CAN NOE (MATARO)' ja existeix: s'elimina.
+2026-11-18 11:18:53 [INFO ] El port 'IP_10.129.223.98' ja existeix: s'omet.
+2026-11-18 11:18:53 [INFO ] Creant la impressora 'LEXMARK XM1242 - CNL CAN NOE (MATARO)'...
+2026-11-18 11:18:53 [OK   ] Impressora 'LEXMARK XM1242 - CNL CAN NOE (MATARO)' correcta.
+2026-11-18 11:18:53 [INFO ] Delegació triada: CNL PREMIA DE MAR
+2026-11-18 11:18:53 [INFO ] === SHARP BP-70C31 - CNL PREMIA DE MAR (10.129.220.194) ===
+2026-11-18 11:18:54 [INFO ] Creant el port 'IP_10.129.220.194'...
+2026-11-18 11:18:54 [INFO ] Creant la impressora 'SHARP BP-70C31 - CNL PREMIA DE MAR'...
+2026-11-18 11:18:56 [OK   ] Impressora 'SHARP BP-70C31 - CNL PREMIA DE MAR' correcta.
+2026-11-18 11:18:56 [INFO ] ----- RESUM -----
+2026-11-18 11:18:56 [INFO ] Impressores processades: 3
+2026-11-18 11:18:56 [OK   ] Correctes: 3
+2026-11-18 11:18:56 [INFO ] Amb error: 0
+2026-11-18 11:18:56 [INFO ] Durada: 8 s. Registre: C:\Users\jlleopart\Documents\GitHub\CPNL-Printer-Installer\src\..\logs\registre_20261118_111732.log
