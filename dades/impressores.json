@@ -1607,6 +1607,19 @@
       ]
     },
     {
+      "codi": "SEU.018610",
+      "nom": "CNL LA BISBAL DE L'EMPORDA",
+      "poblacio": "La Bisbal de l'Empordà",
+      "impressores": [
+        {
+          "marca": "RICOH",
+          "model": "IM 320",
+          "ip": "10.129.210.97",
+          "ubicacio": ""
+        }
+      ]
+    },
+    {
       "codi": "SEU.018612",
       "nom": "CNL LA SELVA I SANTA COLOMA DE FARNERS",
       "poblacio": "Santa Coloma de Farners",
