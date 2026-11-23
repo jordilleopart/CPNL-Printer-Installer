@@ -129,9 +129,11 @@ function Show-SelectorDelegacions {
         # Controlador per defecte (per comptar les impressores que s'instal·laran)
         [string]$ModelPerDefecte = 'SHARP BP-70C31 PCL6',
         # Controlador universal RICOH (per comptar les impressores que s'instal·laran)
-        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46'
+        [string]$ModelRicoh = 'RICOH PCL6 UniversalDriver V4.46',
+        # Delegacions suggerides pel perfil d'Active Directory
+        [object[]]$Preseleccions = @()
     )
-    return Show-SelectorDelegacionsHtml -Delegacions $Delegacions -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh
+    return Show-SelectorDelegacionsHtml -Delegacions $Delegacions -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh -Preseleccions $Preseleccions
     $Delegacions = @($Delegacions | Where-Object { -not [string]::IsNullOrWhiteSpace($_.nom) })
     $estat = @{ Oficines = New-Object 'System.Collections.Generic.HashSet[string]'; Impressores = New-Object 'System.Collections.Generic.HashSet[string]'; Pagina = 1; Acceptat = $false; Omplint = $false }
     $files = @()
@@ -1087,7 +1089,8 @@ function Show-SelectorDelegacionsHtml {
     param(
         [object[]]$Delegacions,
         [string]$ModelPerDefecte,
-        [string]$ModelRicoh
+        [string]$ModelRicoh,
+        [object[]]$Preseleccions = @()
     )
     $Delegacions = @($Delegacions | Where-Object { -not [string]::IsNullOrWhiteSpace($_.nom) })
     $officeData = @()
@@ -1096,7 +1099,8 @@ function Show-SelectorDelegacionsHtml {
         $d = $Delegacions[$i]
         $printers = @(Get-ImpressoresCompatibles -Delegacio $d -ModelPerDefecte $ModelPerDefecte -ModelRicoh $ModelRicoh | Where-Object { Test-AdrecaIP ([string]$_.IP) })
         $disabled = ($printers.Count -eq 0)
-        $officeData += [pscustomobject]@{ index = $i; name = Get-NomCurt $d.nom; count = $printers.Count; disabled = $disabled }
+        $preselected = @($Preseleccions | Where-Object { $_.nom -eq $d.nom }).Count -gt 0
+        $officeData += [pscustomobject]@{ index = $i; name = Get-NomCurt $d.nom; count = $printers.Count; disabled = $disabled; preselected = $preselected }
         foreach ($p in $printers) {
             $printerData += [pscustomobject]@{ index = $printerData.Count; office = $i; name = $p.Nom; ip = $p.IP }
         }
@@ -1126,6 +1130,9 @@ var printers = __PRINTERS__;
 var selectedOffices = {};
 var selectedPrinters = {};
 var page = 1;
+for (var oi = 0; oi < offices.length; oi++) {
+  if (offices[oi].preselected && !offices[oi].disabled) selectedOffices[offices[oi].index] = true;
+}
 function el(id) { return document.getElementById(id); }
 function clearError() { el("office-error").innerText = ""; el("printer-error").innerText = ""; }
 function officeMatches(o, q) { return !q || o.name.toLowerCase().indexOf(q) >= 0; }

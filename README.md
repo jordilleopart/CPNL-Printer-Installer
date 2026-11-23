@@ -143,6 +143,7 @@ actualitzacions i desplegament silenciós.
 | [`src/Proces.ps1`](src/Proces.ps1) | Processament d'una delegació |
 | [`src/Finestra.ps1`](src/Finestra.ps1) | Pantalles de selecció i estat de la instal·lació |
 | [`src/Comprova.ps1`](src/Comprova.ps1) | Diagnòstic sense instal·lar res |
+| [`src/DirectoriActiu.ps1`](src/DirectoriActiu.ps1) | Consulta LDAP de l'usuari i suggeriments de delegació |
 | [`dades/`](dades/) | Fitxers JSON de configuració |
 | [`controladors/`](controladors/) | Paquets de controladors |
 | [`proves/`](proves/) | Dades i scripts de prova |

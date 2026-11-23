@@ -39,6 +39,7 @@ param(
 . (Join-Path $PSScriptRoot 'Motor.ps1')
 . (Join-Path $PSScriptRoot 'Proces.ps1')
 . (Join-Path $PSScriptRoot 'Finestra.ps1')
+. (Join-Path $PSScriptRoot 'DirectoriActiu.ps1')
 
 # Recorda si s'ha demanat el mode sense finestres (Show-Missatge ho consulta)
 $script:SenseFinestres = [bool]$SenseFinestres
@@ -220,7 +221,18 @@ if ($Delegacio) {
     $triades = @($triades | Sort-Object { $_.nom } -Unique)
 }
 else {
-    $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh)
+    $perfilAD = Get-PerfilAD
+    $suggerimentsAD = @(Get-SuggerimentsDelegacionsAD -Delegacions $delegacions -Perfil $perfilAD)
+    if ($suggerimentsAD.Count -gt 0) {
+        Write-Registre -Nivell INFO -Text "Active Directory ha suggerit $($suggerimentsAD.Count) delegacio(ns): $((@($suggerimentsAD | ForEach-Object { $_.nom }) -join ', '))."
+    }
+    elseif ($perfilAD) {
+        Write-Registre -Nivell INFO -Text "Active Directory no ha trobat cap delegacio coincident per a l'usuari."
+    }
+    elseif ($script:ErrorAD) {
+        Write-Registre -Nivell AVIS -Text "No s'ha pogut consultar Active Directory: $script:ErrorAD"
+    }
+    $triades = @(Show-SelectorDelegacions -Delegacions $delegacions -ModelPerDefecte $modelDefecte -ModelRicoh $ModelRicoh -Preseleccions $suggerimentsAD)
 }
 try {
     Import-SeleccioImpressores -Delegacions $triades -Fitxer $FitxerSeleccio
