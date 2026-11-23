@@ -146,6 +146,7 @@ actualitzacions i desplegament silenciós.
 | [`dades/`](dades/) | Fitxers JSON de configuració |
 | [`controladors/`](controladors/) | Paquets de controladors |
 | [`proves/`](proves/) | Dades i scripts de prova |
+| [`MANTENIMENT.md`](MANTENIMENT.md) | Procediment per afegir oficines, impressores i versions |
 
 Els registres es guarden a `logs\registre_AAAAMMDD_HHMMSS.log`. Si la carpeta
 no es pot escriure, l'eina utilitza `%TEMP%\ImpressoresSEU_logs`.
